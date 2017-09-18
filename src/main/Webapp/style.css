@@ -1,0 +1,68 @@
+*{
+    margin: 10px;
+    padding: 0px;
+
+}
+body {
+
+    width: 950px;
+
+
+    background-color:#45484f;
+    margin-left: 25%;
+
+}
+.wrap{
+    margin-top: 5%;
+
+    background-color: #dadee8;
+
+    border: 2px solid black;
+}
+#description_container{
+    padding: 0px;
+    margin: 0px;
+}
+#Language{
+    float: right;
+
+}
+
+
+#product_description{
+    font-size: 20px;
+    font-family:"Proxima Nova";
+
+
+}
+
+
+#nav_list>ul{
+    display: inline-flex;
+    font-size: 25px;
+    list-style-type: none;
+    font-family: Impact, Charcoal, sans-serif;
+
+}
+
+
+#Add_to_card {
+    background-color: #95c7db;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#card_container{
+    margin-left: 5%;
+}
+.product_header{
+    margin-left: 2%;
+    margin-top: 2%;
+}
+

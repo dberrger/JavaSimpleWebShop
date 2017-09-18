@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>LP</title>
+</head>
+<body onload="init()">
+<form name="product" method="post" action="/">
+    <div class="wrap">
+
+
+        <div class="product_header">
+            <h1>Twin Peaks</h1>
+        </div>
+        <div id="nav_list">
+            <ul>
+                <li id="Quick view" onclick="text1()">Quick view</li>
+                <li id="Reviews" onclick="text2()">Reviews</li>
+                <li id="More info" onclick="text3()">More info</li>
+            </ul>
+            <div id="Language">
+                <a onclick="func('ru')">RU</a>
+                <a onclick="func('en')">EN</a>
+                <a onclick="func('de')">DE</a>
+            </div>
+        </div>
+        <table id="shop">
+            <tbody>
+            <tr>
+                <td id="image_container">
+                    <a class="image_box" href="">
+                        <img src="1.jpg" width="320px" alt="alt_name">
+                    </a>
+                </td>
+                <td id="product_description">
+                    <div id="description_container">
+                        <div>
+                            <span id="Artist"> Artist:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Album"> Album:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Label"> Label:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Year"> Year:</span>
+                            <span> 9999</span>
+                        </div>
+                        <div>
+                            <span id="Country"> Country:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Type"> Type:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Format"> Format:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Condition"> Condition:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Genre"> Genre:</span>
+                            <span> XXXXXX</span>
+                        </div>
+                        <div>
+                            <span id="Available"> Available:</span>
+                            <span> Y|N</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="card_container">
+            <span>Price: </span>
+            <span>10000$ </span>
+            <button id="Add_to_card" type="button" >ADD TO CARD</button>
+        </div>
+</form>
+</div>
+<script type="text/javascript" src="main2.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

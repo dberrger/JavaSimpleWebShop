@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+    <display-name>TestServlet</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+
+    <servlet>
+        <description></description>
+        <display-name>Servlet</display-name>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>TestServlet.Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet</servlet-name>
+        <url-pattern>/Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description></description>
+        <display-name>TabServlet</display-name>
+        <servlet-name>TabServlet</servlet-name>
+        <servlet-class>TestServlet.TabServlet</servlet-class>
+
+        <init-param>
+            <param-name>lang</param-name>
+            <param-value>ru</param-value>
+        </init-param>
+        <init-param>
+            <param-name>default_tab</param-name>
+            <param-value>2</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TabServlet</servlet-name>
+        <url-pattern>/TabServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productListServlet</servlet-name>
+        <servlet-class>TestServlet.productListServlet</servlet-class>
+    </servlet>
+<servlet-mapping>
+    <servlet-name>productListServlet</servlet-name>
+    <url-pattern>/productListServlet</url-pattern>
+</servlet-mapping>
+
+
+
+</web-app>
