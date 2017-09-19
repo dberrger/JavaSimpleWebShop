@@ -1,0 +1,16 @@
+
+#languages{
+    display: inline-flex;
+    float: right;
+}
+
+#filter_block{
+    float:left;
+}
+#product_list_block{
+    float: left;
+}
+#content_wrapper{
+    margin-left: 20%;
+    margin-top: 2%;
+}
