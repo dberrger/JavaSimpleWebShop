@@ -22,13 +22,15 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         JSONObject ru_content = new JSONObject();
         JSONObject de_content = new JSONObject();
 
+        en_content.put("zdarova", "cheto na englishe");
+        ru_content.put("zdarova", "цена");
+        de_content.put("zdarova", "preis");
 
 //TODO rewrite ;
         ru_content.put("Quick view", "Кратко");
         ru_content.put("More info", "Подробнее");
         ru_content.put("Reviews", "Отзывы");
-        ru_content.put("Add to card", "Добавить в корзину");
-
+        ru_content.put("add_to_card", "Добавить в корзину");
 
         ru_content.put("Artist", "Исполнитель: ");
         ru_content.put("Album", "Альбом: ");
@@ -40,11 +42,12 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         ru_content.put("Condition", "Состояние: ");
         ru_content.put("Genre", "Жанр: ");
         ru_content.put("Available", "В наличии: ");
+        ru_content.put("Price", "Стоимость:");
 
-        de_content.put("Quick view", "Kurz: ");
-        de_content.put("More info", "mehr: ");
-        de_content.put("Reviews", "Bewertungen: ");
-        de_content.put("Add to card", "In den Warenkorb: ");
+        de_content.put("Quick view", "Kurz");
+        de_content.put("More info", "mehr");
+        de_content.put("Reviews", "Bewertungen");
+        de_content.put("add_to_card", "In den Warenkorb");
 
         de_content.put("Artist", "Performer: ");
         de_content.put("Album", "Album: ");
@@ -56,12 +59,13 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         de_content.put("Condition", "Zustand: ");
         de_content.put("Genre", "Genre: ");
         de_content.put("Available", "Auf Lager: ");
+        de_content.put("Price", "Preis: ");
 
 
         en_content.put("Quick view", "Quick view");
         en_content.put("More info", "More info");
         en_content.put("Reviews", "Reviews");
-        en_content.put("Add to card", "Add to card");
+        en_content.put("add_to_card", "Add to card");
 
         en_content.put("Artist", "Artist: ");
         en_content.put("Album", "Album: ");
@@ -73,6 +77,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         en_content.put("Condition", "Condition: ");
         en_content.put("Genre", "Genre: ");
         en_content.put("Available", "Available: ");
+        en_content.put("Price", "Price: ");
 
 
 

@@ -14,24 +14,31 @@
 <head>
     <title>VinylShop</title>
     <jsp:useBean id="products" class="TestServlet.ProductManager" scope="session"/>
-    <link rel="stylesheet" type="text/css" href="style_header.css">
+    <link rel="stylesheet" href="css/productList_style.css">
 </head>
 <body id="wrapper">
-<div id="item_list_0"></div>
-<div id="item_list_1"></div>
-<div id="item_list_2"></div>
-<div id="item_list_3"></div>
-<div id="item_list_4"></div>
+
 <jsp:include page="header.jsp"/> <br>
+<div id="languages">
+    <div onclick="t('ru')">RU </div>
+    <div onclick="t('en')">EN </div>
+    <div onclick="t('de')">DE </div>
+</div>
 <table id="item_list">
 <c:forEach var="item" items="${products.products.productsBase}">
    <jsp:include page="insert_line.jsp">
-       <jsp:param name="brandName" value="${item.brandName}"/>
+       <jsp:param name="artist" value="${item.artist}"/>
+       <jsp:param name="album" value="${item.album}"/>
+       <jsp:param name="year" value="${item.year}"/>
+       <jsp:param name="country" value="${item.country}"/>
+       <jsp:param name="genre" value="${item.genre}"/>
        <jsp:param name="price" value="${item.price}"/>
+       <jsp:param name="album_cover" value="${item.album_cover}"/>
    </jsp:include>
 </c:forEach>
 </table>
-<button onclick="productFilter(15)">filt</button>
-<script type="text/javascript" src="../productFilter.js"></script>
+<button onclick="productFilter(0)">filt</button>
+<script type="text/javascript" src="js/productFilter.js"></script>
+<script type="text/javascript" src="js/traslater_product_list.js"></script>
 </body>
 </html>

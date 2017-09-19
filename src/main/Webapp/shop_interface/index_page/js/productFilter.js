@@ -1,7 +1,8 @@
 function  productFilter(price){
 
+
     var request = new XMLHttpRequest();
-    var url = "/productListServlet"+"?priceUnder=15";
+    var url = "/productListServlet"+"?priceUnder="+price;
   //  var params = "priceUnder"+price;
     request.open("get", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

@@ -17,7 +17,7 @@ function  func(request_language){
            document.getElementById("Quick view").innerHTML = responseData["Quick view"];
            document.getElementById("Reviews").innerHTML = responseData["Reviews"];
            document.getElementById("More info").innerHTML = responseData["More info"];
-           document.getElementById("Add_to_card").innerHTML = responseData["Add to card"];
+           document.getElementById("add_to_card").innerHTML = responseData["add_to_card"];
 
            document.getElementById("Artist").innerHTML = responseData["Artist"];
            document.getElementById("Album").innerHTML = responseData["Album"];

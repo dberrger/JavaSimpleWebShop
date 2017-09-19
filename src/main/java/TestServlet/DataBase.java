@@ -12,12 +12,14 @@ public class DataBase {
     }
 //TODO temp storage
     private ArrayList<Product> productsBase = new ArrayList<Product>(Arrays.asList(
-            new Product("Sergei", "15"),
-            new Product("Ivan", "5"),
-            new Product("Harry", "10"),
-            new Product("Sam", "40"),
-            new Product("Rodion", "30"),
-            new Product("Alina", "20")
+            new Product("Linkin park", "Hybrid Theory", "2000","USA","Alternative rock",150,"1"),
+            new Product("Linkin park1", "Meteora", "2003","USA","Alternative rock",192,"2"),
+            new Product("Linkin park2", "Minutes to Midnight", "2007","USA","Alternative rock",99,"3"),
+            new Product("Linkin park3", "A Thousand Suns", "2010","USA","Alternative rock",164,"4"),
+            new Product("Linkin park4", "Living Things", "2012","USA","Alternative rock",120,"5"),
+            new Product("Linkin park5", "The Hunting Party", "2014","USA","Alternative rock",102,"6"),
+            new Product("Linkin park6", "One More Light", "2017","USA","Alternative rock",102,"7")
+
     ));
 
 

@@ -27,7 +27,7 @@ public class ProductManager implements Serializable {
         int f = Integer.parseInt(s);
         ArrayList<Product> filted = new ArrayList<Product>();
         for(int i = 0; i<products.getProductsBase().size(); i++){
-           if(Integer.parseInt(products.getProductsBase().get(i).getPrice()) > f ){
+           if(products.getProductsBase().get(i).getPrice() > f ){
                filted.add(products.getProductsBase().get(i));
            }
         }
@@ -37,7 +37,7 @@ public class ProductManager implements Serializable {
     public JSONObject currentFilterToJSON(ArrayList<Product> obj){
         JSONObject jsonObject = new JSONObject();
         for(int i = 0; i<obj.size(); i++){
-           jsonObject.put(i,obj.get(i).getBrandName());
+           jsonObject.put(i,obj.get(i).getArtist());
         }
         return jsonObject;
     }

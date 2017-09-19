@@ -16,8 +16,9 @@
 
     <title>Login, Sign up Header</title>
 
-    <link rel="stylesheet" href="demo.css">
-    <link rel="stylesheet" href="header-login-signup.css">
+
+
+    <link rel="stylesheet" href="css/header-style.css">
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
 </head>
