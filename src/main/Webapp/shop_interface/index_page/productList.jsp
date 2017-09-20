@@ -20,13 +20,21 @@
 
 <jsp:include page="header.jsp"/> <br>
 <div id="languages">
-    <div onclick="t('ru')">RU </div>
-    <div onclick="t('en')">EN </div>
-    <div onclick="t('de')">DE </div>
+    <a onclick="t('ru')">RU </a>
+    <a onclick="t('en')">EN </a>
+    <a onclick="t('de')">DE </a>
 </div>
 <div id="content_wrapper">
 <div id="filter_block">
-    <img src="../Untitled.png" alt="">
+    <p>Product filter..</p>
+    <div>Sort by price ascending</div>
+    <div>Sort by price descending</div>
+    <div>Price <form>
+        <input type="text" id="lowerBound">
+        <input type="text" id="upperBound">
+        <input type="button" value="send" onclick="productFilter('lowerBound','upperBound')"/>
+    </form></div>
+
 </div>
 <div id="product_list_block">
 <table id="item_list">

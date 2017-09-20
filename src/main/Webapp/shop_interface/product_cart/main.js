@@ -30,11 +30,6 @@ function  func(request_language){
            document.getElementById("Genre").innerHTML = responseData["Genre"];
            document.getElementById("Available").innerHTML = responseData["Available"];
 
-           /*
-            }
-*/
-
-
         }
     }
     request.send(params);

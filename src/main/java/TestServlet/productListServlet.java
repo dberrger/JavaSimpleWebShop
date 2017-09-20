@@ -24,8 +24,8 @@ public class productListServlet extends HttpServlet {
 
            ProductManager toFilter = new ProductManager();
 
-       System.out.println(toFilter.currentFilterToJSON(toFilter.Filter(request.getParameter("priceUnder"))));
-         out.println(toFilter.currentFilterToJSON(toFilter.Filter(request.getParameter("priceUnder"))));
+      // System.out.println(toFilter.currentFilterToJSON(toFilter.Filter(request.getParameter("lowerBound"))));
+         out.println(toFilter.currentFilterToJSON(toFilter.FilterByPriceRange(request.getParameter("lowerBound"),request.getParameter("upperBound"))));
 
 
 

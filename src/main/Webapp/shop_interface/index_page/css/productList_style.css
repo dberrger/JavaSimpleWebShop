@@ -2,10 +2,14 @@
 #languages{
     display: inline-flex;
     float: right;
+    font-size: 30px;
+
 }
 
 #filter_block{
     float:left;
+    width: 296px;
+    height: 570px;
 }
 #product_list_block{
     float: left;

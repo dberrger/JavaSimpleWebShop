@@ -14,8 +14,8 @@
 </head>
 <body>
 
-    <tbody id="item">
-    <td id="image_container">
+    <tbody class="item">
+    <td class="image_container">
         <a class="image_box" href="">
             <img src="../${param.album_cover}.jpg" alt="picture_1" width="200px">
         </a>
@@ -24,31 +24,27 @@
         <div id="description_container">
             <div style="width: 400px;">
                 <span class="Artist"> Artist:</span>
-                <c:out value="${param.artist}"/>
+                <span class="Artist_param"><c:out value="${param.artist}"/></span>
             </div>
             <div>
                 <span class="Album"> Album:</span>
-                 <c:out value="${param.album}"/>
+                 <span class="Album_param"><c:out value="${param.album}"/></span>
             </div>
             <div>
                 <span class="Year"> Year:</span>
-                 <c:out value="${param.year}"/>
+                <span class="Year_param"><c:out value="${param.year}"/></span>
             </div>
             <div>
                 <span class="Country"> Country:</span>
-                 <c:out value="${param.country}"/>
+                <span class="Country_param"><c:out value="${param.country}"/></span>
             </div>
             <div>
                 <span class="Genre"> Genre:</span>
-                 <c:out value="${param.genre}"/>
+                <span class="Genre_param"><c:out value="${param.genre}"/></span>
             </div>
             <div>
                 <span class="Price"> Price:</span>
-
-            </div>
-            <div>
-                <span class="zdarova"> <c:out value="${param.price}"/> </span>
-
+                <span class="Price_param"> <c:out value="${param.price}"/> </span>
             </div>
         </div>
     <td>
