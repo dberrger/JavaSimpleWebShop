@@ -28,7 +28,6 @@ function t(request_language) {
             }
         }
     }
-//TODO написать функцию для длины jsona filter
-//TODO сделать hash map 1->"Artist" etc.
+
     request.send(params)
 }

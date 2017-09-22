@@ -51,15 +51,18 @@ function productFilter(lowerBound, upperBound) {
     var request = new XMLHttpRequest();
     var url = "/productListServlet" + "?lowerBound=" + lbound + "&upperBound=" + ubound;
     request.open("get", url, true);
+
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 // TODO filter have no check to wrong inputs+ if diap not exits not worK!!!!
+
+
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var responseData = JSON.parse(request.response);
             useFilter(responseData);
         }
 
-    }
+    };
 
     request.send();
 }
