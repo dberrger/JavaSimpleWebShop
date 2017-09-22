@@ -16,8 +16,9 @@
 
     <tbody class="item">
     <td class="image_container">
-        <a class="image_box" href="">
+        <a class="image_box" id="${param}" onclick="cardTransition(this.id)" method="post">
             <img src="../${param.album_cover}.jpg" alt="picture_1" width="200px">
+
         </a>
     </td>
     <td id="product_description">

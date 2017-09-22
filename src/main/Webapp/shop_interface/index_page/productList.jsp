@@ -55,5 +55,6 @@
 <button onclick="productFilter(0)">filt</button>
 <script type="text/javascript" src="js/productFilter.js"></script>
 <script type="text/javascript" src="js/traslater_product_list.js"></script>
+<script type="text/javascript" src="js/cardTransition.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 function  func(request_language){
     var request = new XMLHttpRequest();
     var url = "/Servlet";
