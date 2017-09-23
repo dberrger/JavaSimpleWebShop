@@ -42,22 +42,32 @@
         </div>
 
     </div>
-    <% //Cookie lastName = new Cookie("last_name", "chlen");
-       // response.addCookie(lastName);%>
+
     <div id="product_list_block">
 
         <table id="item_list">
             <c:choose>
-                <c:when test="${pageContext.request.cookies != null}">
-                    <% Cookie[] cookies = request.getCookies();
+                <c:when test="${  pageContext.request.cookies[3].value.equals(\"t\")}">
+                    <%  Cookie cookie = null;
+                        Cookie[] cookies = null;
 
+                        // Get an array of Cookies associated with the this domain
+                        cookies = request.getCookies();
 
-                            out.println(cookies[0].getValue());
-
-
+                        if( cookies != null ) {
+                            out.println("<h2> Found Cookies Name and Value</h2>");
+                            System.out.println(cookies.length);
+                            for (int i = 0; i < cookies.length; i++) {
+                                cookie = cookies[i];
+                                out.print("Name : " + cookie.getName( ) + ",  ");
+                                out.print("Value: " + cookie.getValue( )+" <br/>");
+                            }
+                        } else {
+                            out.println("<h2>No cookies founds</h2>");
+                        }
 
                     %>
-                    <c:forEach var="item" items="${products.FilterByPriceRange(\"111\",\"121\")}">
+                    <c:forEach var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
                         <jsp:include page="insert_line.jsp">
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>
@@ -70,7 +80,7 @@
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
-                    <c:forEach var="item" items="${products.FilterByPriceRange(\"0\",\"666\")}">
+                    <c:forEach var="item" items="${products.products.productsBase}">
                         <jsp:include page="insert_line.jsp">
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>

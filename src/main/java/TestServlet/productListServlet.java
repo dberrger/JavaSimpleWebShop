@@ -15,32 +15,32 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 //TODO rename &
-@WebServlet(name = "productListServlet")
+@WebServlet(name = "productListServlet", urlPatterns = "/productListServlet")
 public class productListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("UTF-8");
+         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
         ProductManager toFilter = new ProductManager();
         JSONObject jsonObject = new JSONObject();
-        ArrayList<Product> products = new ArrayList<Product>();
-        products = toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound"));
-        jsonObject = toFilter.currentFilterToJSON(products);
+
         System.out.println(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound")).get(0).getArtist().toString());
-        /* Cookie firstName = new Cookie("first_name", toFilter.FilterByPriceRange(request.getParameter("lowerBound"),request.getParameter("upperBound")).get(1).toString());
-        Cookie lastName = new Cookie("last_name", "chlen");
-        response.addCookie(lastName);
-        */
-        Cookie c = new Cookie("FILTER" , "hui");
-        c.setMaxAge(24*60*60);
+
+
+
+        Cookie c = new Cookie("lowerBound", request.getParameter("lowerBound"));
+        Cookie d = new Cookie("upperBound", request.getParameter("upperBound"));
+        Cookie e = new Cookie("indicator", request.getParameter("bua"));
+
         response.addCookie(c);
-        RequestDispatcher rd = request.getRequestDispatcher("/shop_interface/index_page/productList.jsp");
-        rd.forward(request,response);
-        out.println("Hello");
+        response.addCookie(d);
+        response.addCookie(e);
+
+        out.println(toFilter.currentFilterToJSON(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound"))));
 
     }
 }
