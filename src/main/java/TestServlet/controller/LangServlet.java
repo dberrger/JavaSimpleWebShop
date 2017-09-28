@@ -1,4 +1,4 @@
-package TestServlet;
+package TestServlet.controller;
 
 import org.json.simple.JSONObject;
 
@@ -10,13 +10,9 @@ import java.io.PrintWriter;
 
 
 
-@javax.servlet.annotation.WebServlet(name = "Servlet")
-public class Servlet extends javax.servlet.http.HttpServlet {
+@javax.servlet.annotation.WebServlet(name = "LangServlet")
+public class LangServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
-
 
         JSONObject en_content = new JSONObject();
         JSONObject ru_content = new JSONObject();

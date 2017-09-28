@@ -1,6 +1,6 @@
 function  func(request_language){
     var request = new XMLHttpRequest();
-    var url = "/Servlet";
+    var url = "/LangServlet";
     var params = "lang="+request_language;
     console.log(request_language);
     request.open("post", url, true);

@@ -49,7 +49,7 @@ function productFilter(lowerBound, upperBound) {
     var lbound = document.getElementById(lowerBound).value;
     var ubound = document.getElementById(upperBound).value;
     var request = new XMLHttpRequest();
-    var url = "/productListServlet" + "?lowerBound=" + lbound + "&upperBound=" + ubound+"&bua=t";
+    var url = "/FilterServlet" + "?lowerBound=" + lbound + "&upperBound=" + ubound + "&bua=t";
     request.open("get", url, true);
 
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

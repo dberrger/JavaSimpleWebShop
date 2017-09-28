@@ -8,19 +8,19 @@
 
     <servlet>
         <description></description>
-        <display-name>Servlet</display-name>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>TestServlet.Servlet</servlet-class>
+        <display-name>LangServlet</display-name>
+        <servlet-name>LangServlet</servlet-name>
+        <servlet-class>TestServlet.controller.LangServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Servlet</url-pattern>
+        <servlet-name>LangServlet</servlet-name>
+        <url-pattern>/LangServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <description></description>
         <display-name>TabServlet</display-name>
         <servlet-name>TabServlet</servlet-name>
-        <servlet-class>TestServlet.TabServlet</servlet-class>
+        <servlet-class>TestServlet.controller.TabServlet</servlet-class>
 
         <init-param>
             <param-name>lang</param-name>

@@ -1,8 +1,7 @@
-package TestServlet;
+package TestServlet.dao;
 
-import TestServlet.Product;
+import TestServlet.dao.Product;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
