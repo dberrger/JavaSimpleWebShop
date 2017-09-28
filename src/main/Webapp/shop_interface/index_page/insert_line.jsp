@@ -42,7 +42,7 @@
                 <span class="Genre_param"><c:out value="${param.genre}"/></span>
             </div>
             <div>
-                <span class="Price"> Price:</span>
+                 <span class="Price"> Price:</span>
                 <span class="Price_param"> <c:out value="${param.price}"/> </span>
             </div>
         </div>
