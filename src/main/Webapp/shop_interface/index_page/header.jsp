@@ -33,8 +33,13 @@
 
         <nav>
             <a href="#">Home</a>
-            <a href="#" class="selected">Blog</a>
-            <a href="#">Pricing</a>
+
+            <a href="#">RU</a>
+            <a href="#">EN</a>
+            <a href="#">DE</a>
+
+            <a href="#" >History <!-- for non registered user???? whaaat--></a>
+            <a href="#"><img src="../shopping_cart.png" width="15px" alt="shopping_cart">Card</a>
         </nav>
 
         <ul>

@@ -1,8 +1,9 @@
-package TestServlet;
+package TestServlet.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Product implements Serializable{
+public class Product implements Serializable {
 
     private String artist;
     private String album;
@@ -12,23 +13,26 @@ public class Product implements Serializable{
     private int price;
     private String album_cover;
 
+    private ArrayList<ProductInOrder> productInOrders;
+
     private DataBase dataBase;
 
     public DataBase getDataBase() {
-            return dataBase;
-        }
+        return dataBase;
+    }
 
-    public Product(){}
+    public Product() {
+    }
 
     public Product(String artist, String album, String year, String country, String genre, int price, String album_cover) {
-            this.artist = artist;
-            this.album =album;
-            this.year = year;
-            this.country = country;
-            this.genre = genre;
-            this.price = price;
-            this.album_cover = album_cover;
-        }
+        this.artist = artist;
+        this.album = album;
+        this.year = year;
+        this.country = country;
+        this.genre = genre;
+        this.price = price;
+        this.album_cover = album_cover;
+    }
 
     public String getArtist() {
         return artist;
@@ -88,6 +92,14 @@ public class Product implements Serializable{
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public ArrayList<ProductInOrder> getProductInOrders() {
+        return productInOrders;
+    }
+
+    public void setProductInOrders(ArrayList<ProductInOrder> productInOrders) {
+        this.productInOrders = productInOrders;
     }
 }
 
