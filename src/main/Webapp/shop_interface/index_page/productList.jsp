@@ -43,7 +43,12 @@
         </div>
 
     </div>
+    <div id="aveMariia"><p> List of kuplenniih:</p>
+        <% ArrayList<Product> pd = new ArrayList<Product>();
 
+        %>
+
+</div>
     <div id="product_list_block">
 
         <table id="item_list">
@@ -66,8 +71,7 @@
                             out.println("<h2>No cookies founds</h2>");
                         }
                     %>
-                    <c:forEach varStatus="curr" var="item"
-                               items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
+                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
                         <jsp:include page="insert_line.jsp">
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>
@@ -82,6 +86,7 @@
                 <c:otherwise>
                     <c:forEach varStatus="curr" var="item" items="${products.products.productsBase}">
                         <jsp:include page="insert_line.jsp">
+                            <jsp:param name="curr" value="${curr.index}"/>
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>
                             <jsp:param name="year" value="${item.year}"/>
@@ -100,5 +105,6 @@
 <script type="text/javascript" src="js/productFilter.js"></script>
 <script type="text/javascript" src="js/traslater_product_list.js"></script>
 <script type="text/javascript" src="js/cardTransition.js"></script>
+<script type="text/javascript" src="js/filter2.js"></script>
 </body>
 </html>

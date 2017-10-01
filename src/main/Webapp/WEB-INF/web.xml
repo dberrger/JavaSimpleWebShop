@@ -4,8 +4,6 @@
     <welcome-file-list>
         <welcome-file></welcome-file>
     </welcome-file-list>
-
-
     <servlet>
         <description></description>
         <display-name>LangServlet</display-name>

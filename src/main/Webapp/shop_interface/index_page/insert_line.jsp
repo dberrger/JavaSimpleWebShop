@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/insert_line_style.css">
 
-<jsp:useBean id="orderBean" class="TestServlet.service.OrderBean"/>
+<jsp:useBean id="orderBean" class="TestServlet.service.OrderBean" scope="session"/>
 
     <tbody class="item">
     <td class="image_container">
@@ -47,8 +47,9 @@
             </div>
         </div>
     <td>
+
         <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <button class="add_to_card" onclick="" >ADD TO CARD</button>
+        <button  id="${param.album}" class="add_to_card" onclick="foo(this.id) " >ADD TO CARD</button>
     </td>
     </tbody>
 

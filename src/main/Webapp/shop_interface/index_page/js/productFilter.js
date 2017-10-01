@@ -35,10 +35,14 @@ function useFilter(responseData) {
         for (var j = 0; j < 6; j++) {
             array[i].getElementsByClassName(map.get(j))[0].innerHTML = responseData[i][j];
 
+
         }
+
         array[i].getElementsByClassName("image_container")[0].innerHTML = "<img src=\"../" +
             responseData[i][6] +
             ".jpg\" alt=\"picture_1\" width=\"200px\">";
+        var currID = responseData[i][1].toString();
+        array[i].getElementsByClassName("add_to_card")[0].setAttribute("id", currID);
         table.appendChild(array[i]);
     }
 }
@@ -51,11 +55,7 @@ function productFilter(lowerBound, upperBound) {
     var request = new XMLHttpRequest();
     var url = "/FilterServlet" + "?lowerBound=" + lbound + "&upperBound=" + ubound + "&bua=t";
     request.open("get", url, true);
-
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-// TODO filter have no check to wrong inputs+ if diap not exits not worK!!!!
-
-
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             alert(request.response);
@@ -65,7 +65,6 @@ function productFilter(lowerBound, upperBound) {
         }
 
     };
-
     request.send();
 }
 
