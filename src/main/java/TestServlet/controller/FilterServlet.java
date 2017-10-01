@@ -26,8 +26,6 @@ public class FilterServlet extends HttpServlet {
         ProductManager toFilter = new ProductManager();
         JSONObject jsonObject = new JSONObject();
 
-        //System.out.println(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound")).get(0).getArtist().toString());
-
         Cookie c = new Cookie("lowerBound", request.getParameter("lowerBound"));
         Cookie d = new Cookie("upperBound", request.getParameter("upperBound"));
         Cookie e = new Cookie("indicator", request.getParameter("bua"));

@@ -2,9 +2,11 @@ package TestServlet.dao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Product implements Serializable {
-
+    private static AtomicInteger next_id = new AtomicInteger(0);
+    private int id;
     private String artist;
     private String album;
     private String year;
@@ -15,16 +17,24 @@ public class Product implements Serializable {
 
     private ArrayList<ProductInOrder> productInOrders;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private DataBase dataBase;
 
     public DataBase getDataBase() {
         return dataBase;
     }
 
-    public Product() {
-    }
+    public Product() {}
 
     public Product(String artist, String album, String year, String country, String genre, int price, String album_cover) {
+        this.id = Product.next_id.incrementAndGet();
         this.artist = artist;
         this.album = album;
         this.year = year;
@@ -32,6 +42,7 @@ public class Product implements Serializable {
         this.genre = genre;
         this.price = price;
         this.album_cover = album_cover;
+
     }
 
     public String getArtist() {

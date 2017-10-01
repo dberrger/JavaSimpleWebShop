@@ -10,17 +10,41 @@ public class OrderBean implements Serializable {
     private OrdersManager ordersManager;
     private int quantity;
 
-    public void createOrder() {
+    public OrderBean() {}
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public OrdersManager getOrdersManager() {
+        return ordersManager;
+    }
+
+    public void setOrdersManager(OrdersManager ordersManager) {
+        this.ordersManager = ordersManager;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+   /* public void createOrder() {
         if (order == null) {
             order = new Order();
         }
-    }
+    }*/
 
-    public void addProduct(Product product){
+    public void addProduct(){
 
-            order = new Order();
-
-        System.out.println("Hello1");
+        //order = new Order()
       // ordersManager.addToOrder(product, order,1);
        // System.out.println("Hello2");
     }
