@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login, Sign up Header</title>
+
+    <link rel="stylesheet" href="../index_page/css/header-style.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
     <title>LP</title>
 </head>
-<body onload="init()">
+<body onload="">
+<header class="header-login-signup">
+    <div class="header-limiter">
+        <h1><a href="#">Vinyl<span>shop</span></a></h1>
+        <nav>
+            <a href="#">Home</a>
+
+            <a href="#">RU</a>
+            <a href="#">EN</a>
+            <a href="#">DE</a>
+
+            <a href="#" >History <!-- for non registered user????--></a>
+            <a href="#"><img src="../shopping_cart.png" width="15px" alt="shopping_cart">Card</a>
+        </nav>
+
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign up</a></li>
+        </ul>
+    </div>
+</header>
 <form name="product" method="post" action="/">
     <div class="wrap">
-
-
         <div class="product_header">
             <h1>Twin Peaks</h1>
         </div>
         <div id="nav_list">
             <ul>
-                <li id="Quick view" onclick="text1()">Quick view</li>
-                <li id="Reviews" onclick="text2()">Reviews</li>
-                <li id="More info" onclick="text3()">More info</li>
+                <li id="Quick view" onclick="quickReview()">Quick view</li>
+                <li id="Reviews" onclick="reviews()">Reviews</li>
+                <li id="More info" onclick="moreInfo()">More info</li>
             </ul>
             <div id="Language">
                 <a onclick="func('ru')">RU</a>
@@ -26,70 +52,53 @@
                 <a onclick="func('de')">DE</a>
             </div>
         </div>
+        <div id="info"></div>
         <table id="shop">
             <tbody>
-            <tr>
                 <td id="image_container">
                     <a class="image_box" href="">
-                        <img src="../../resources/1.jpg" width="320px" alt="alt_name">
+                        <img src="../1.jpg" width="320px" alt="alt_name">
                     </a>
                 </td>
                 <td id="product_description">
                     <div id="description_container">
                         <div>
-                            <span id="Artist"> Artist:</span>
-                            <span> XXXXXX</span>
+                            <span class="r"> Blabladfl;'dskfl;'sdfsdf:</span>
                         </div>
                         <div>
-                            <span id="Album"> Album:</span>
-                            <span> XXXXXX</span>
+                            <span class="Artist"> Artist:</span>
+                            <span class="Artist_param">xxxx</span>
                         </div>
                         <div>
-                            <span id="Label"> Label:</span>
-                            <span> XXXXXX</span>
+                            <span class="Album"> Album:</span>
+                            <span class="Album_param">xxxx</span>
                         </div>
                         <div>
-                            <span id="Year"> Year:</span>
-                            <span> 9999</span>
+                            <span class="Year"> Year:</span>
+                            <span class="Year_param">xxxx</span>
                         </div>
                         <div>
-                            <span id="Country"> Country:</span>
-                            <span> XXXXXX</span>
+                            <span class="Country"> Country:</span>
+                            <span class="Country_param">xxxx</span>
                         </div>
                         <div>
-                            <span id="Type"> Type:</span>
-                            <span> XXXXXX</span>
+                            <span class="Genre"> Genre:</span>
+                            <span class="Genre_param">xxxx</span>
                         </div>
                         <div>
-                            <span id="Format"> Format:</span>
-                            <span> XXXXXX</span>
+                            <span class="Price"> Price:</span>
+                            <span class="Price_param">xxxx</span>
                         </div>
-                        <div>
-                            <span id="Condition"> Condition:</span>
-                            <span> XXXXXX</span>
-                        </div>
-                        <div>
-                            <span id="Genre"> Genre:</span>
-                            <span> XXXXXX</span>
-                        </div>
-                        <div>
-                            <span id="Available"> Available:</span>
-                            <span> Y|N</span>
-                        </div>
+                        <div id="card_container">
+                        <button id="add_to_card" type="button" >ADD TO CARD</button>
+                    </div>
                     </div>
                 </td>
-            </tr>
             </tbody>
         </table>
-        <div id="card_container">
-            <span>Price: </span>
-            <span>10000$ </span>
-            <button id="add_to_card" type="button" >ADD TO CARD</button>
-        </div>
+    </div>
 </form>
-</div>
-<script type="text/javascript" src="main2.js"></script>
-<script type="text/javascript" src="main.js"></script>
-
+<script type="text/javascript" src="deftab.js"></script>
+<script type="text/javascript" src="translateCard.js"></script>
 </body>
 </html>

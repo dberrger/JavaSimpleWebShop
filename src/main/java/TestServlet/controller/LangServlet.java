@@ -22,7 +22,7 @@ public class LangServlet extends javax.servlet.http.HttpServlet {
         ru_content.put("zdarova", "цена");
         de_content.put("zdarova", "preis");
 
-//TODO rewrite ;
+//TODO rewrite;
         ru_content.put("Quick view", "Кратко");
         ru_content.put("More info", "Подробнее");
         ru_content.put("Reviews", "Отзывы");
@@ -74,8 +74,6 @@ public class LangServlet extends javax.servlet.http.HttpServlet {
         en_content.put("Genre", "Genre: ");
         en_content.put("Available", "Available: ");
         en_content.put("Price", "Price: ");
-
-
 
         String request_language = request.getParameter("lang");
         System.out.println(request_language);

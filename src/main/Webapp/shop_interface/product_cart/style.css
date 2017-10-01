@@ -1,23 +1,18 @@
 *{
     margin: 10px;
     padding: 0px;
-
 }
 body {
-
-    width: 950px;
-
-
-    background-color:#45484f;
-    margin-left: 25%;
-
+    background-color:#ffffff;
 }
 .wrap{
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
 
     background-color: #dadee8;
 
-    border: 2px solid black;
+    border: 1px solid black;
 }
 #description_container{
     padding: 0px;
@@ -25,7 +20,7 @@ body {
 }
 #Language{
     float: right;
-
+    cursor: pointer;
 }
 
 
@@ -42,11 +37,12 @@ body {
     font-size: 25px;
     list-style-type: none;
     font-family: Impact, Charcoal, sans-serif;
+    cursor: pointer;
 
 }
 
 
-#add_to_card {
+.add_to_card {
     background-color: #95c7db;
     border: none;
     color: white;

@@ -1,21 +1,14 @@
 <%@ page import="TestServlet.service.OrderBean" %>
 <%@ page import="TestServlet.dao.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: sergi
-  Date: 9/14/2017
-  Time: 11:32 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/insert_line_style.css">
 
 <jsp:useBean id="orderBean" class="TestServlet.service.OrderBean" scope="session"/>
 
     <tbody class="item">
-    <td class="image_container">
-        <a class="image_box" id="${param}" onclick="cardTransition(this.id)" method="post">
+    <td class="image_container" id="${param}" onclick="cardTransition(this.id)">
+        <a class="image_box"  method="post">
             <img src="../${param.album_cover}.jpg" alt="picture_1" width="200px">
         </a>
     </td>

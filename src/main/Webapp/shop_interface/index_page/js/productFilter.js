@@ -34,15 +34,16 @@ function useFilter(responseData) {
     for (var i = 0; i < Object.keys(responseData).length; i++) {
         for (var j = 0; j < 6; j++) {
             array[i].getElementsByClassName(map.get(j))[0].innerHTML = responseData[i][j];
-
-
         }
-
         array[i].getElementsByClassName("image_container")[0].innerHTML = "<img src=\"../" +
             responseData[i][6] +
             ".jpg\" alt=\"picture_1\" width=\"200px\">";
         var currID = responseData[i][1].toString();
+
+        //TODO make func convert to json
+        var currProductInfo = responseData[i];
         array[i].getElementsByClassName("add_to_card")[0].setAttribute("id", currID);
+        array[i].getElementsByClassName("image_container")[0].setAttribute("id", currProductInfo);
         table.appendChild(array[i]);
     }
 }
@@ -63,7 +64,6 @@ function productFilter(lowerBound, upperBound) {
             alert(request.response);
             useFilter(responseData);
         }
-
     };
     request.send();
 }

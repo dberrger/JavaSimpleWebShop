@@ -26,14 +26,12 @@
         </init-param>
         <init-param>
             <param-name>default_tab</param-name>
-            <param-value>2</param-value>
+            <param-value>1</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>TabServlet</servlet-name>
         <url-pattern>/TabServlet</url-pattern>
     </servlet-mapping>
-
-
 
 </web-app>
