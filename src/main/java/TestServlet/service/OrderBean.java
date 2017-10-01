@@ -23,7 +23,7 @@ public class OrderBean implements Serializable {
     public OrdersManager getOrdersManager() {
         return ordersManager;
     }
-
+ 
     public void setOrdersManager(OrdersManager ordersManager) {
         this.ordersManager = ordersManager;
     }
