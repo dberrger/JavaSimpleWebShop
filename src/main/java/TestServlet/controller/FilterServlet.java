@@ -1,5 +1,6 @@
 package TestServlet.controller;
 
+import TestServlet.dao.Product;
 import TestServlet.service.ProductManager;
 import org.json.simple.JSONObject;
 
@@ -25,6 +26,8 @@ public class FilterServlet extends HttpServlet {
 
         ProductManager toFilter = new ProductManager();
         JSONObject jsonObject = new JSONObject();
+
+        System.out.println("ID;"+ toFilter.getElementById(1));
 
         Cookie c = new Cookie("lowerBound", request.getParameter("lowerBound"));
         Cookie d = new Cookie("upperBound", request.getParameter("upperBound"));

@@ -7,7 +7,7 @@
 <jsp:useBean id="orderBean" class="TestServlet.service.OrderBean" scope="session"/>
 
     <tbody class="item">
-    <td class="image_container" id="${param}" onclick="cardTransition(this.id)">
+    <td class="image_container" id="${param.ffs}" onclick="cardTransition(this.id)">
         <a class="image_box"  method="post">
             <img src="../${param.album_cover}.jpg" alt="picture_1" width="200px">
         </a>
@@ -42,7 +42,7 @@
     <td>
 
         <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <button  id="${param.album}" class="add_to_card" onclick="foo(this.id) " >ADD TO CARD</button>
+        <button  id="${param.ffs}" class="add_to_card" onclick="addToCard(this.id) " >ADD TO CARD</button>
     </td>
     </tbody>
 

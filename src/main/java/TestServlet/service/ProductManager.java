@@ -24,8 +24,10 @@ public class ProductManager implements Serializable {
         this.products = products;
     }
 
+    public Product getElementById(int productID){
+        return products.getElementByID(productID);
+    }
 
-    //TODO rework filter (+add another)
     public  ArrayList<Product> FilterByPriceRange(String lowerBound, String upperBound){
         int lb = Integer.parseInt(lowerBound);
         int ub = Integer.parseInt(upperBound);
@@ -40,8 +42,6 @@ public class ProductManager implements Serializable {
 
     public JSONObject currentFilterToJSON(ArrayList<Product> obj){
         JSONObject jsonObject = new JSONObject();
-
-
         for(int i = 0; i<obj.size(); i++){
             JSONArray jsonArray = new JSONArray();
                 jsonArray.add(obj.get(i).getArtist());

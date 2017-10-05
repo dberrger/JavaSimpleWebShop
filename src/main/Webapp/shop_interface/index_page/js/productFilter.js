@@ -38,10 +38,10 @@ function useFilter(responseData) {
         array[i].getElementsByClassName("image_container")[0].innerHTML = "<img src=\"../" +
             responseData[i][6] +
             ".jpg\" alt=\"picture_1\" width=\"200px\">";
-        var currID = responseData[i][1].toString();
+        var currID =responseData[i][0];
 
         //TODO make func convert to json
-        var currProductInfo = responseData[i];
+        var currProductInfo = responseData[i][0];
         array[i].getElementsByClassName("add_to_card")[0].setAttribute("id", currID);
         array[i].getElementsByClassName("image_container")[0].setAttribute("id", currProductInfo);
         table.appendChild(array[i]);

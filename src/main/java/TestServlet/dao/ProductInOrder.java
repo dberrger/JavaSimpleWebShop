@@ -2,9 +2,10 @@ package TestServlet.dao;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.Properties;
 
-public class ProductInOrder {
+public class ProductInOrder implements Serializable {
     private int id;
     private Product product;
     private Order order;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Product implements Serializable {
-    private static AtomicInteger next_id = new AtomicInteger(0);
     private int id;
     private String artist;
     private String album;
@@ -33,8 +32,8 @@ public class Product implements Serializable {
 
     public Product() {}
 
-    public Product(String artist, String album, String year, String country, String genre, int price, String album_cover) {
-        this.id = Product.next_id.incrementAndGet();
+    public Product(String artist, String album, String year, String country, String genre, int price, String album_cover, int id) {
+        this.id = id;
         this.artist = artist;
         this.album = album;
         this.year = year;
@@ -112,6 +111,7 @@ public class Product implements Serializable {
     public void setProductInOrders(ArrayList<ProductInOrder> productInOrders) {
         this.productInOrders = productInOrders;
     }
+
 }
 
 

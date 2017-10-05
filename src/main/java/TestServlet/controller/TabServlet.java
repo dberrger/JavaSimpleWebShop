@@ -1,7 +1,9 @@
 package TestServlet.controller;
 
+import TestServlet.service.ProductManager;
 import org.json.simple.JSONObject;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,7 @@ public class TabServlet extends HttpServlet {
         JSONObject tab = new JSONObject();
 
         if(getInitParameter("default_tab").equals("1")){
-           tab.put("default_tab", "1");
+            tab.put("default_tab", "1");
         }
         else if (getInitParameter("default_tab").equals("2")) {
             tab.put("default_tab", "2");
@@ -29,6 +31,17 @@ public class TabServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String requestData = request.getParameter("productID");
+        ProductManager productManager = new ProductManager();
+        String album =productManager.getElementById(Integer.parseInt(requestData)).getAlbum();
+        String albumCover = productManager.getElementById(Integer.parseInt(requestData)).getAlbum_cover();
+        String artist = productManager.getElementById(Integer.parseInt(requestData)).getArtist();
+        String country = productManager.getElementById(Integer.parseInt(requestData)).getCountry();
+        String genre = productManager.getElementById(Integer.parseInt(requestData)).getGenre();
+        String year = productManager.getElementById(Integer.parseInt(requestData)).getYear();
+        int price = productManager.getElementById(Integer.parseInt(requestData)).getPrice();
+
 
         PrintWriter printWriter = response.getWriter();
         printWriter.println("<!DOCTYPE html>");
@@ -84,37 +97,37 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<tbody>");
         printWriter.println("<td id=\"image_container\">");
         printWriter.println("<a class=\"image_box\" href=\"\">");
-        printWriter.println("<img src=\"shop_interface/1.jpg\" width=\"320px\" alt=\"alt_name\">");
+        printWriter.println("<img src=\"shop_interface/"+albumCover+".jpg\" width=\"320px\" alt=\"alt_name\">");
         printWriter.println("</a>");
         printWriter.println("</td>");
         printWriter.println("<td id=\"product_description\">");
         printWriter.println("<div id=\"description_container\">");
         printWriter.println("<div>");
-      //  printWriter.println("<span class=\"\"> Blabladfl;'dskfl;'sdfsdf:</span>");
+        //  printWriter.println("<span class=\"\"> Blabladfl;'dskfl;'sdfsdf:</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Artist\"> Artist:</span>");
-        printWriter.println("<span class=\"Artist_param\">xxxx</span>");
+        printWriter.println("<span class=\"Artist_param\">"+artist +"</span>");
         printWriter.println(" </div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Album\"> Album:</span>");
-        printWriter.println("<span class=\"Album_param\">xxxx</span>");
+        printWriter.println("<span class=\"Album_param\">"+album+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Year\"> Year:</span>");
-        printWriter.println("<span class=\"Year_param\">xxxx</span>");
+        printWriter.println("<span class=\"Year_param\">"+year+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Country\"> Country:</span>");
-        printWriter.println("<span class=\"Country_param\">xxxx</span>");
+        printWriter.println("<span class=\"Country_param\">"+country+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Genre\"> Genre:</span>");
-        printWriter.println("<span class=\"Genre_param\">xxxx</span>");
+        printWriter.println("<span class=\"Genre_param\">"+genre+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Price\"> Price:</span>");
-        printWriter.println("<span class=\"Price_param\">xxxx</span>");
+        printWriter.println("<span class=\"Price_param\">"+price+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div id=\"card_container\">");
         printWriter.println("<button class=\"add_to_card\" type=\"button\" >ADD TO CARD</button>");
