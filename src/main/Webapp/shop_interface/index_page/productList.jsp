@@ -2,13 +2,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TestServlet.dao.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: sergi
-  Date: 9/14/2017
-  Time: 9:15 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -18,6 +11,8 @@
     <jsp:useBean id="products" class="TestServlet.service.ProductManager" scope="session"/>
     <jsp:useBean id="db" class="TestServlet.dao.DataBase" scope="session"/>
     <jsp:useBean id="order" class="TestServlet.service.OrderBean" scope="session"/>
+    <jsp:useBean id="productInCard" class="TestServlet.dao.Product" scope="session"/>
+
     <link rel="stylesheet" href="css/productList_style.css">
 </head>
 <body id="wrapper">
@@ -43,17 +38,16 @@
         </div>
 
     </div>
-    <div id="aveMariia"><p> List of kuplenniih:</p>
-        <% ArrayList<Product> pd = new ArrayList<Product>();
+    <div id="aveMariia" ><p> List of kuplenniih:</p>
 
-        %>
 
 </div>
     <div id="product_list_block">
 
         <table id="item_list">
+
             <c:choose>
-                <c:when test="${  pageContext.request.cookies[3].value.equals(\"t\")}">
+                <c:when test="${ pageContext.request.cookies[2].value.equals(\"t\")}">
                     <% Cookie cookie = null;
                         Cookie[] cookies = null;
 
@@ -71,8 +65,9 @@
                             out.println("<h2>No cookies founds</h2>");
                         }
                     %>
-                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
+                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[0].value, pageContext.request.cookies[1].value)}">
                         <jsp:include page="insert_line.jsp">
+                            <jsp:param name="ffs" value="${item.id}"/>
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>
                             <jsp:param name="year" value="${item.year}"/>
@@ -86,7 +81,7 @@
                 <c:otherwise>
                     <c:forEach varStatus="curr" var="item" items="${products.products.productsBase}">
                         <jsp:include page="insert_line.jsp">
-                            <jsp:param name="curr" value="${curr.index}"/>
+                            <jsp:param name="ffs" value="${item.id}"/>
                             <jsp:param name="artist" value="${item.artist}"/>
                             <jsp:param name="album" value="${item.album}"/>
                             <jsp:param name="year" value="${item.year}"/>
@@ -105,6 +100,6 @@
 <script type="text/javascript" src="js/productFilter.js"></script>
 <script type="text/javascript" src="js/traslater_product_list.js"></script>
 <script type="text/javascript" src="js/cardTransition.js"></script>
-<script type="text/javascript" src="js/filter2.js"></script>
+<script type="text/javascript" src="js/addToCard.js"></script>
 </body>
 </html>
