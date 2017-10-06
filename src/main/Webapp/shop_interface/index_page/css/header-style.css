@@ -17,7 +17,7 @@
 
 .header-login-signup .header-limiter h1{
 	float: left;
-	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	font: normal 35px Cookie, Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	margin: 0;
 }
@@ -123,4 +123,7 @@
 body {
 	margin:0;
 	padding:0;
+}
+#order_red{
+    color: darkred;
 }

@@ -6,20 +6,67 @@
 <html>
 <head>
     <title>Cart</title>
-    <jsp:useBean id="Orbin" scope="application" class="TestServlet.service.OrderBean"/>
+    <link rel="stylesheet" href="../index_page/css/productList_style.css">
+    <link rel="stylesheet" href="../index_page/css/card.css">
 </head>
-<body>
-<% ArrayList<Product> bin = ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts();%>
-<% pageContext.setAttribute("chill",bin);
-%>
-
-<c:forEach varStatus="curr" var="item" items="${chill}">
-   <c:out value="${item.album}"/> 
-   <c:out value="${item.artist}"/>
-   <c:out value="${item.price}"/>
-   <c:out value="${item.country}"/>
-   <c:out value="${item.genre}"/> <br>
-</c:forEach>
-
+<body id="wrapper">
+<jsp:include page="../index_page/header.jsp"/>
+<br>
+<div id="languages">
+    <a onclick="t('ru')">RU </a>
+    <a onclick="t('en')">EN </a>
+    <a onclick="t('de')">DE </a>
+</div>
+<span id="your_order">Your order:</span>
+<c:choose>
+<c:when test="${empty sessionScope.card}">
+    <h1 id="empty_case">Your card is empty</h1>
+</c:when>
+<c:otherwise>
+    <div id="content_wrapper">
+        <div id="filter_block"></div>
+        <div id="product_list_block"></div>
+        <table id="cardTableList">
+            <c:forEach varStatus="curr" var="item" items="${sessionScope.card}">
+                <tbody class="item">
+                <td class="image_container">
+                    <a class="image_box">
+                        <img src="../${item.album_cover}.jpg" alt="picture_1" width="200px">
+                    </a>
+                </td>
+                <td id="product_description">
+                    <div id="description_container">
+                        <div style="width: 400px;">
+                            <span class="Artist"> Artist:</span>
+                            <span class="Artist_item"><c:out value="${item.artist}"/></span>
+                        </div>
+                        <div>
+                            <span class="Album"> Album:</span>
+                            <span class="Album_item"><c:out value="${item.album}"/></span>
+                        </div>
+                        <div>
+                            <span class="Year"> Year:</span>
+                            <span class="Year_item"><c:out value="${item.year}"/></span>
+                        </div>
+                        <div>
+                            <span class="Country"> Country:</span>
+                            <span class="Country_item"><c:out value="${item.country}"/></span>
+                        </div>
+                        <div>
+                            <span class="Genre"> Genre:</span>
+                            <span class="Genre_item"><c:out value="${item.genre}"/></span>
+                        </div>
+                        <div>
+                            <span class="Price"> Price:</span>
+                            <span class="Price_item"> <c:out value="${item.price}"/> </span>
+                        </div>
+                    </div>
+                </tbody>
+            </c:forEach>
+        </table>
+    </div>
+</c:otherwise>
+</c:choose>
 </body>
+<script type="text/javascript" src="../index_page/js/traslater_product_list.js"></script>
 </html>

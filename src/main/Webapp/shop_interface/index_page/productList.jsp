@@ -45,8 +45,9 @@
     <div id="product_list_block">
 
         <table id="item_list">
+
             <c:choose>
-                <c:when test="${ pageContext.request.cookies[3].value.equals(\"t\")}">
+                <c:when test="${ pageContext.request.cookies[2].value.equals(\"t\")}">
                     <% Cookie cookie = null;
                         Cookie[] cookies = null;
 
@@ -64,7 +65,7 @@
                             out.println("<h2>No cookies founds</h2>");
                         }
                     %>
-                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
+                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[0].value, pageContext.request.cookies[1].value)}">
                         <jsp:include page="insert_line.jsp">
                             <jsp:param name="ffs" value="${item.id}"/>
                             <jsp:param name="artist" value="${item.artist}"/>

@@ -9,6 +9,7 @@
     float:left;
     width: 296px;
     height: 570px;
+    background-color: #dce6f7;
 }
 #product_list_block{
     float: left;
@@ -16,4 +17,15 @@
 #content_wrapper{
     margin-left: 20%;
     margin-top: 2%;
+}
+#your_order{
+    font-size: 30px;
+}
+
+.item{
+    background-color: #d9d9db;
+}
+
+#wrapper{
+    background-color: #eff9f9;
 }

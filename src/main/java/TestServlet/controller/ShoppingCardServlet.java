@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.security.Principal;
 import java.util.ArrayList;
 
-@WebServlet(name = "ShoppingCardServlet",urlPatterns = "/ShoppingCardServlet")
+@WebServlet(name = "ShoppingCardServlet", urlPatterns = "/ShoppingCardServlet")
 public class ShoppingCardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,27 +26,31 @@ public class ShoppingCardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String requestData = request.getParameter("productID");
+
+        if (request.getParameter("productID") == null) {
+            System.out.println("NULL DATA");
+            requestData = "1";
+        }
+
         HttpSession session = request.getSession();
         //session.setMaxInactiveInterval(5);
         System.out.println(requestData);
-        if(session.getAttribute("productToOrder") == null){
+        if (session.getAttribute("productToOrder") == null) {
             System.out.println("Herer!");
             OrderBean productToOrder = new OrderBean();
             productToOrder.createOrder();
-            session.setAttribute("productToOrder",productToOrder);
+            session.setAttribute("productToOrder", productToOrder);
             ArrayList<Product> list = productToOrder.addProduct(Integer.parseInt(requestData));
-            session.setAttribute("card",list);
-            System.out.println("card size here"+((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
+            session.setAttribute("card", list);
+            System.out.println("card size here" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
 
-        }
-        else if(session.getAttribute("productToOrder") != null){
+        } else if (session.getAttribute("productToOrder") != null) {
             System.out.println("There!");
-            System.out.println("pio "+ session.getAttribute("productToOrder"));
-            OrderBean productToOrderOld = (OrderBean)session.getAttribute("productToOrder");
+            System.out.println("pio " + session.getAttribute("productToOrder"));
+            OrderBean productToOrderOld = (OrderBean) session.getAttribute("productToOrder");
 
-            session.setAttribute("card",productToOrderOld.addProduct(Integer.parseInt(requestData)));
-            System.out.println("card size there"+((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
-            System.out.println(request.getAttribute("Orbean"));
+            session.setAttribute("card", productToOrderOld.addProduct(Integer.parseInt(requestData)));
+            System.out.println("card size there" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
 
         }
 

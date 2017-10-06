@@ -8,7 +8,7 @@
 
     <tbody class="item">
     <td class="image_container" id="${param.ffs}" onclick="cardTransition(this.id)">
-        <a class="image_box"  method="post">
+        <a class="image_box">
             <img src="../${param.album_cover}.jpg" alt="picture_1" width="200px">
         </a>
     </td>
@@ -40,8 +40,6 @@
             </div>
         </div>
     <td>
-
-        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <button  id="${param.ffs}" class="add_to_card" onclick="addToCard(this.id) " >ADD TO CARD</button>
     </td>
     </tbody>

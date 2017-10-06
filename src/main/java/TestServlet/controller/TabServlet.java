@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "TabServlet")
 public class TabServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//TODO delete this
         JSONObject tab = new JSONObject();
 
         if(getInitParameter("default_tab").equals("1")){
@@ -65,17 +66,14 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<a href=\"#\">DE</a>");
         printWriter.println("<a href=\"#\" >History <!-- for non registered user????--></a>");
         printWriter.println("<a href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Card</a>");
+        printWriter.println("<a id=\"order_red\" href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Order</a>");
         printWriter.println("</nav>");
-
         printWriter.println("<ul>");
         printWriter.println("<li><a href=\"#\">Login</a></li>");
         printWriter.println("<li><a href=\"#\">Sign up</a></li>");
         printWriter.println("</ul>");
-
         printWriter.println("</div>");
-
         printWriter.println("</header>");
-        // printWriter.println("<form name=\"product\" method=\"post\" action="/">");
         printWriter.println("<div class=\"wrap\">");
         printWriter.println("<div class=\"product_header\">");
         printWriter.println("<h1>Product card</h1>");
@@ -103,7 +101,6 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<td id=\"product_description\">");
         printWriter.println("<div id=\"description_container\">");
         printWriter.println("<div>");
-        //  printWriter.println("<span class=\"\"> Blabladfl;'dskfl;'sdfsdf:</span>");
         printWriter.println("</div>");
         printWriter.println("<div>");
         printWriter.println("<span class=\"Artist\"> Artist:</span>");
@@ -130,17 +127,17 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<span class=\"Price_param\">"+price+"</span>");
         printWriter.println("</div>");
         printWriter.println("<div id=\"card_container\">");
-        printWriter.println("<button class=\"add_to_card\" type=\"button\" >ADD TO CARD</button>");
+        printWriter.println("<button onclick=\"addToCard("+requestData+")\"class=\"add_to_card\" type=\"button\">ADD TO CARD</button>");
         printWriter.println("</div>");
         printWriter.println("</div>");
         printWriter.println("</td>");
         printWriter.println("</tbody>");
         printWriter.println("</table>");
-
         printWriter.println("</div>");
         printWriter.println("</form>");
         printWriter.println("<script type=\"text/javascript\" src=\"shop_interface/product_cart/deftab.js\"></script>");
         printWriter.println("<script type=\"text/javascript\" src=\"shop_interface/product_cart/translateCard.js\"></script>");
+        printWriter.println("<script type=\"text/javascript\" src=\"shop_interface/index_page/js/addToCard.js\"></script>");
         printWriter.println("</body>");
         printWriter.println("</html>");
     }

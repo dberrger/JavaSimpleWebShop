@@ -38,6 +38,6 @@ public class FilterServlet extends HttpServlet {
         response.addCookie(e);
 
         out.println(toFilter.currentFilterToJSON(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound"))));
-
+   
     }
 }
