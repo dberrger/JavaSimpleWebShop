@@ -1,5 +1,6 @@
 package TestServlet.controller;
 
+import TestServlet.dao.ItemQuantityPrice;
 import TestServlet.dao.Order;
 import TestServlet.dao.Product;
 import TestServlet.service.OrderBean;
@@ -26,30 +27,57 @@ public class ShoppingCardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String requestData = request.getParameter("productID");
-
-        if (request.getParameter("productID") == null) {
-            System.out.println("NULL DATA");
-            requestData = "1";
-        }
-
         HttpSession session = request.getSession();
         //session.setMaxInactiveInterval(5);
         System.out.println(requestData);
         if (session.getAttribute("productToOrder") == null) {
             System.out.println("Herer!");
             OrderBean productToOrder = new OrderBean();
-            productToOrder.createOrder();
+            ArrayList<ItemQuantityPrice> listOfItemQuantityPrice =  productToOrder.addListOfItemQuantityPrice(Integer.parseInt(requestData));
+            ArrayList<Product> listofProducts = new ArrayList<Product>();
+            ArrayList<Integer> listofQuantities = new ArrayList<Integer>();
+            ArrayList<Integer> listofPrices = new ArrayList<Integer>();
+            int sumOfCard = productToOrder.sumOfCard(listOfItemQuantityPrice);
             session.setAttribute("productToOrder", productToOrder);
+
+            for(int i=0;i<listOfItemQuantityPrice.size();i++){
+                listofProducts.add(listOfItemQuantityPrice.get(i).getProduct());
+                listofQuantities.add(listOfItemQuantityPrice.get(i).getQuantity());
+                listofPrices.add(listOfItemQuantityPrice.get(i).getPrice());
+            }
+
+            session.setAttribute("listOfPrices", listofPrices);
+            session.setAttribute("listOfProducts", listofProducts);
+            session.setAttribute("listOfQuantities", listofQuantities);
+            session.setAttribute("sumOfCard", sumOfCard);
+
+           /* session.setAttribute("productToOrder", productToOrder);
             ArrayList<Product> list = productToOrder.addProduct(Integer.parseInt(requestData));
             session.setAttribute("card", list);
-            System.out.println("card size here" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
+            System.out.println("card size here" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());*/
+            //------------------------
+
 
         } else if (session.getAttribute("productToOrder") != null) {
             System.out.println("There!");
             System.out.println("pio " + session.getAttribute("productToOrder"));
-            OrderBean productToOrderOld = (OrderBean) session.getAttribute("productToOrder");
 
-            session.setAttribute("card", productToOrderOld.addProduct(Integer.parseInt(requestData)));
+            OrderBean productToOrderOld = (OrderBean) session.getAttribute("productToOrder");
+            ArrayList<ItemQuantityPrice> listOfItemQuantityPrice =  productToOrderOld.addListOfItemQuantityPrice(Integer.parseInt(requestData));
+            ArrayList<Product> listofProducts = new ArrayList<Product>();
+            ArrayList<Integer> listofQuantities = new ArrayList<Integer>();
+            ArrayList<Integer> listofPrices = new ArrayList<Integer>();
+            int sumOfCard = productToOrderOld.sumOfCard(listOfItemQuantityPrice);
+            session.setAttribute("productToOrder", productToOrderOld);
+            for(int i=0;i<listOfItemQuantityPrice.size();i++){
+                listofProducts.add(listOfItemQuantityPrice.get(i).getProduct());
+                listofQuantities.add(listOfItemQuantityPrice.get(i).getQuantity());
+                listofPrices.add(listOfItemQuantityPrice.get(i).getPrice());
+            }
+            session.setAttribute("listOfPrices", listofPrices);
+            session.setAttribute("listOfProducts", listofProducts);
+            session.setAttribute("listOfQuantities", listofQuantities);
+            session.setAttribute("sumOfCard", sumOfCard);
             System.out.println("card size there" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
 
         }
