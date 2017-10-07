@@ -1,13 +1,16 @@
 package TestServlet.dao;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 
 public class Order {
-    //create ORDER
-    //list of Products
-    //+ quantity
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @OneToMany
     private ArrayList<ProductInOrder> productInOrders;
 
     public int getId() {

@@ -1,10 +1,12 @@
 package TestServlet.dao;
 
+
+import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Product implements Serializable {
+
     private int id;
     private String artist;
     private String album;
@@ -13,7 +15,7 @@ public class Product implements Serializable {
     private String genre;
     private int price;
     private String album_cover;
-
+    @OneToMany
     private ArrayList<ProductInOrder> productInOrders;
 
     public int getId() {
@@ -30,7 +32,8 @@ public class Product implements Serializable {
         return dataBase;
     }
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(String artist, String album, String year, String country, String genre, int price, String album_cover, int id) {
         this.id = id;

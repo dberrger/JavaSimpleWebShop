@@ -1,15 +1,19 @@
 package TestServlet.dao;
 
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Properties;
 
 public class ProductInOrder implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @ManyToOne
     private Product product;
+    @ManyToOne
     private Order order;
     private int quantity;
+    private String price;
 
     public int getId() {
         return id;
@@ -21,6 +25,14 @@ public class ProductInOrder implements Serializable {
 
     public Product getProduct() {
         return product;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setProduct(Product product) {

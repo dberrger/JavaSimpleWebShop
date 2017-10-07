@@ -16,7 +16,6 @@ public class ProductManager implements Serializable {
     }
 
     public DataBase getProducts() {
-
         return products;
     }
 
@@ -51,6 +50,7 @@ public class ProductManager implements Serializable {
                 jsonArray.add(obj.get(i).getGenre());
                 jsonArray.add(obj.get(i).getPrice());
                 jsonArray.add(obj.get(i).getAlbum_cover());
+                jsonArray.add(obj.get(i).getId());
             System.out.println(jsonArray);
             jsonObject.put(i,jsonArray);
         }
