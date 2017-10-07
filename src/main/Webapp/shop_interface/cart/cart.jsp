@@ -17,19 +17,33 @@
     <a onclick="t('en')">EN </a>
     <a onclick="t('de')">DE </a>
 </div>
-<span id="your_order">Your order:</span>
 <c:choose>
     <c:when test="${empty sessionScope.listOfProducts}">
-        <h1 id="empty_case">Your card is empty</h1>
+        <div id="empty_case_wrapper"><h1 id="empty_case">Your card is empty!</h1></div>
+        <img id="sad_smile" src="../sad_smile.png">
     </c:when>
     <c:otherwise>
         <div id="content_wrapper">
-            <div id="filter_block"> <h1> Total:${sessionScope.sumOfCard} </h1> </div>
+            <div id="filter_block">
+                <h1 class="Your_order">Your order: </h1>
+                <div class="card_info_wrapper">
+                    <img src="../sad_smile.png" style="width: 100px">
+                    <div id="card_info_wrapper_1">
+                        <span class="Card_info_1">${sessionScope.productCount}</span> <span class="Card_info">products in the card.</span>
+                    </div>
+                    <div id="card_info_wrapper_2">
+                        <span> <img src="../total_cost.png" width="20px"> </span> <span
+                            class="Total_cost"> Total cost: </span><span
+                            class="Total_cost_price"> ${sessionScope.sumOfCard}$</span>
+                    </div>
+                    <button id="#" class="add_to_card" onclick="alert('Вы не авторизованы!')">BUY</button>
+                </div>
+            </div>
             <div id="product_list_block"></div>
             <table id="cardTableList">
                 <c:forEach varStatus="curr" var="item" items="${sessionScope.listOfProducts}">
                     <tbody class="item">
-                    <td class="image_container">
+                    <td class="image_container" id="${item.id}" onclick="cardTransition(this.id)">
                         <a class="image_box">
                             <img src="../${item.album_cover}.jpg" alt="picture_1" width="200px">
                         </a>
@@ -79,4 +93,5 @@
 </c:choose>
 </body>
 <script type="text/javascript" src="../index_page/js/traslater_product_list.js"></script>
+<script type="text/javascript" src="../index_page/js/cardTransition.js"></script>
 </html>

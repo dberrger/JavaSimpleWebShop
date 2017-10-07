@@ -1,4 +1,62 @@
-#empty_case{
+#empty_case {
     font-size: 50px;
     text-align: center;
+}
+
+#empty_case_wrapper {
+    background-color: #e0c0c6;
+}
+
+#sad_smile {
+    padding-left: 38%;
+    width: 300px;
+}
+
+.Card_info_1, .Card_info {
+
+    text-align: center;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.Card_info_1, .Total_cost_price {
+    color: darkred;
+    font-size: 20px;
+
+}
+
+.card_info_wrapper {
+    padding-left: 10px;
+    padding-top: 40px;
+    background-color: #b299a1;
+    border-radius: 10px;
+    height: 300px;
+
+}
+
+.Your_order {
+    text-align: center;
+    font-size: 25px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.Total_cost {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.add_to_card {
+    background-color: #db2c44;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    min-width: 95%;
+    margin-top: 100px;
+    border-radius: 5px;
 }

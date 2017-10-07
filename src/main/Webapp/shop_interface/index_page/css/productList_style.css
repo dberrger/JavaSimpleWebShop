@@ -8,8 +8,11 @@
 #filter_block{
     float:left;
     width: 296px;
-    height: 570px;
+    height: 520px;
     background-color: #dce6f7;
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 5px;
 }
 #product_list_block{
     float: left;

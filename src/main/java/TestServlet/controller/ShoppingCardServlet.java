@@ -38,18 +38,21 @@ public class ShoppingCardServlet extends HttpServlet {
             ArrayList<Integer> listofQuantities = new ArrayList<Integer>();
             ArrayList<Integer> listofPrices = new ArrayList<Integer>();
             int sumOfCard = productToOrder.sumOfCard(listOfItemQuantityPrice);
+            int productCount = 0;
             session.setAttribute("productToOrder", productToOrder);
 
-            for(int i=0;i<listOfItemQuantityPrice.size();i++){
-                listofProducts.add(listOfItemQuantityPrice.get(i).getProduct());
-                listofQuantities.add(listOfItemQuantityPrice.get(i).getQuantity());
-                listofPrices.add(listOfItemQuantityPrice.get(i).getPrice());
+            for (ItemQuantityPrice aListOfItemQuantityPrice : listOfItemQuantityPrice) {
+                listofProducts.add(aListOfItemQuantityPrice.getProduct());
+                listofQuantities.add(aListOfItemQuantityPrice.getQuantity());
+                listofPrices.add(aListOfItemQuantityPrice.getPrice());
+                productCount += aListOfItemQuantityPrice.getQuantity();
             }
 
             session.setAttribute("listOfPrices", listofPrices);
             session.setAttribute("listOfProducts", listofProducts);
             session.setAttribute("listOfQuantities", listofQuantities);
             session.setAttribute("sumOfCard", sumOfCard);
+            session.setAttribute("productCount", productCount);
 
            /* session.setAttribute("productToOrder", productToOrder);
             ArrayList<Product> list = productToOrder.addProduct(Integer.parseInt(requestData));
@@ -68,16 +71,19 @@ public class ShoppingCardServlet extends HttpServlet {
             ArrayList<Integer> listofQuantities = new ArrayList<Integer>();
             ArrayList<Integer> listofPrices = new ArrayList<Integer>();
             int sumOfCard = productToOrderOld.sumOfCard(listOfItemQuantityPrice);
+            int productCount = 0;
             session.setAttribute("productToOrder", productToOrderOld);
             for(int i=0;i<listOfItemQuantityPrice.size();i++){
                 listofProducts.add(listOfItemQuantityPrice.get(i).getProduct());
                 listofQuantities.add(listOfItemQuantityPrice.get(i).getQuantity());
                 listofPrices.add(listOfItemQuantityPrice.get(i).getPrice());
+                productCount += listOfItemQuantityPrice.get(i).getQuantity();
             }
             session.setAttribute("listOfPrices", listofPrices);
             session.setAttribute("listOfProducts", listofProducts);
             session.setAttribute("listOfQuantities", listofQuantities);
             session.setAttribute("sumOfCard", sumOfCard);
+            session.setAttribute("productCount", productCount);
             System.out.println("card size there" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
 
         }
