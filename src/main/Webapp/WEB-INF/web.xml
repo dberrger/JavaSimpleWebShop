@@ -34,4 +34,32 @@
         <url-pattern>/TabServlet</url-pattern>
     </servlet-mapping>
 
+
+    <!-- Auntefication -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>
+                Entire Application
+            </web-resource-name>
+            <url-pattern>/MyProfile</url-pattern>
+            <url-pattern>/secured/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tomcat</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <!-- Define the Login Configuration for this Application -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>My Club Members-only Area</realm-name>
+        <form-login-config>
+            <form-login-page>/shop_interface/login/login_page.jsp</form-login-page>
+            <form-error-page>/shop_interface/login/error_login_page.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>tomcat</role-name>
+    </security-role>
+
+
 </web-app>

@@ -20,6 +20,7 @@
             <a href="#">EN</a>
             <a href="#">DE</a>
             <a href="#" >History <!-- for non registered user???? --></a>
+
             <a href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt="">Card</a>
             <a id="order_red" href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt="">Order</a>
             <ul>
@@ -34,9 +35,13 @@
                 </c:choose>
             </ul>
         </nav>
-
+        <c:if test="${pageContext.request.isUserInRole('tomcat')}">
+        <c:out value="Hello, ${pageContext.request.userPrincipal.name}"/>
+            <br>
+            Your <a href="/MyProfile" style="color: coral;">profile</a>
+        </c:if>
         <ul>
-            <li><a href="#">Login</a></li>
+            <li><a href="/MyProfile">Login</a></li>
             <li><a href="#">Sign up</a></li>
         </ul>
     </div>

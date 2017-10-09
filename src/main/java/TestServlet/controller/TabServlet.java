@@ -9,10 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "TabServlet")
+@WebServlet(name = "TabServlet",loadOnStartup = 1)
 public class TabServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //TODO delete this
@@ -33,6 +34,7 @@ public class TabServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String requestData = request.getParameter("productID");
         ProductManager productManager = new ProductManager();
         String album =productManager.getElementById(Integer.parseInt(requestData)).getAlbum();
@@ -42,7 +44,8 @@ public class TabServlet extends HttpServlet {
         String genre = productManager.getElementById(Integer.parseInt(requestData)).getGenre();
         String year = productManager.getElementById(Integer.parseInt(requestData)).getYear();
         int price = productManager.getElementById(Integer.parseInt(requestData)).getPrice();
-
+        HttpSession session =request.getSession();
+        session.setAttribute("default_tab",getInitParameter("default_tab"));
 
         PrintWriter printWriter = response.getWriter();
         printWriter.println("<!DOCTYPE html>");
