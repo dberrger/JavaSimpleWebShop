@@ -1,6 +1,8 @@
 package TestServlet.dao;
 
 import TestServlet.dao.Product;
+import org.hibernate.Hibernate;
+import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,4 +35,5 @@ public class DataBase {
            return null;
         }
     }
+
 }

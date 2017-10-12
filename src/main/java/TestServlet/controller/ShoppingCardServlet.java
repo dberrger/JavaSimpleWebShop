@@ -47,7 +47,7 @@ public class ShoppingCardServlet extends HttpServlet {
                 listofPrices.add(aListOfItemQuantityPrice.getPrice());
                 productCount += aListOfItemQuantityPrice.getQuantity();
             }
-
+            session.setAttribute("listOfItemQuantityPrice",listOfItemQuantityPrice);
             session.setAttribute("listOfPrices", listofPrices);
             session.setAttribute("listOfProducts", listofProducts);
             session.setAttribute("listOfQuantities", listofQuantities);
@@ -79,6 +79,7 @@ public class ShoppingCardServlet extends HttpServlet {
                 listofPrices.add(listOfItemQuantityPrice.get(i).getPrice());
                 productCount += listOfItemQuantityPrice.get(i).getQuantity();
             }
+            session.setAttribute("listOfItemQuantityPrice",listOfItemQuantityPrice);
             session.setAttribute("listOfPrices", listofPrices);
             session.setAttribute("listOfProducts", listofProducts);
             session.setAttribute("listOfQuantities", listofQuantities);

@@ -34,8 +34,8 @@ public class OrdersManager implements Serializable {
         // сохраняем в БД персист
         return true;
     }
-
+/*
     public ArrayList<ProductInOrder> getProductsInOrder(){
         return order.getProductInOrders();
-    }
+    }*/
 }

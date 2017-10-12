@@ -18,7 +18,9 @@
         <description></description>
         <display-name>TabServlet</display-name>
         <servlet-name>TabServlet</servlet-name>
+
         <servlet-class>TestServlet.controller.TabServlet</servlet-class>
+
 
         <init-param>
             <param-name>lang</param-name>
@@ -28,6 +30,7 @@
             <param-name>default_tab</param-name>
             <param-value>1</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>TabServlet</servlet-name>
@@ -42,6 +45,7 @@
                 Entire Application
             </web-resource-name>
             <url-pattern>/MyProfile</url-pattern>
+            <url-pattern>/OrderServlet</url-pattern>
             <url-pattern>/secured/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
@@ -60,6 +64,5 @@
     <security-role>
         <role-name>tomcat</role-name>
     </security-role>
-
 
 </web-app>
