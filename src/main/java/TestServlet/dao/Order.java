@@ -15,9 +15,11 @@ public class Order implements Serializable {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Basic
     @Column(name = "order_id")
-    private int IDOfOrderedProduct;
+    private String orderID;
+    @Basic
+    @Column(name ="product_id")
+    private int productID;
     @Basic
     @Column(name = "customer_id")
     private int IDCustomer;
@@ -40,12 +42,20 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public int getIDOfOrderedProduct() {
-        return IDOfOrderedProduct;
+    public String getOrderID() {
+        return orderID;
     }
 
-    public void setIDOfOrderedProduct(int IDOfOrderedProduct) {
-        this.IDOfOrderedProduct = IDOfOrderedProduct;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
     public int getIDCustomer() {

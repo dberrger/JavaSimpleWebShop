@@ -24,7 +24,13 @@ public class OrderServlet extends HttpServlet {
         ArrayList<ItemQuantityPrice> listOfItemQuantityPriceToAdd = (ArrayList<ItemQuantityPrice>)session.getAttribute("listOfItemQuantityPrice");
         OrderPrep orderPrep = new OrderPrep();
         orderPrep.addOrder(request.getParameter("customer_name"),request.getParameter("customer_address"),listOfItemQuantityPriceToAdd);
+
         printWriter.println("OK!");
+        listOfItemQuantityPriceToAdd.clear();
+        //TODO session.removeAtr('')
+        //Clear all lists.
+        //----------------------
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
