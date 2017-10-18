@@ -1,6 +1,6 @@
 <%@ page import="TestServlet.dao.DataBase" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="TestServlet.dao.Product" %>
+<%@ page import="TestServlet.service.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -10,8 +10,8 @@
     <title>VinylShop</title>
     <jsp:useBean id="products" class="TestServlet.service.ProductManager" scope="session"/>
     <jsp:useBean id="db" class="TestServlet.dao.DataBase" scope="session"/>
-    <jsp:useBean id="order" class="TestServlet.service.OrderBean" scope="session"/>
-    <jsp:useBean id="productInCard" class="TestServlet.dao.Product" scope="session"/>
+    <jsp:useBean id="orderEntity" class="TestServlet.service.OrderBean" scope="session"/>
+    <jsp:useBean id="productInCard" class="TestServlet.service.Product" scope="session"/>
 
     <link rel="stylesheet" href="css/productList_style.css">
 </head>

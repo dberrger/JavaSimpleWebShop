@@ -1,9 +1,12 @@
-package TestServlet.dao;
+package TestServlet.service;
+
+import TestServlet.service.Product;
 
 public class ItemQuantityPrice {
     private Product product;
     private int quantity;
     private int price;
+    private String dateTime;
 
     public Product getProduct() {
         return product;
@@ -11,6 +14,14 @@ public class ItemQuantityPrice {
 
     public ItemQuantityPrice() {
 
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
     public void setProduct(Product product) {

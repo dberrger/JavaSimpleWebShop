@@ -1,16 +1,16 @@
 package TestServlet.dao;
 
+import TestServlet.service.HibernateUtil;
+
 import javax.swing.*;
 import java.sql.SQLException;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 
 @Entity
 @Table(schema = "db",name = "test_db")
-public class Order implements Serializable {
+public class OrderEntity implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,16 @@ public class Order implements Serializable {
     @Basic
     @Column(name = "order_date")
     private String DateTimeOfOrder;
+    @Column(name = "customer_name")
+    private String customerName;
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public int getId() {
         return id;
@@ -90,20 +99,6 @@ public class Order implements Serializable {
         DateTimeOfOrder = dateTimeOfOrder;
     }
 
-    public void addData(Order order) throws SQLException {
-       org.hibernate.Session session = null;
-       try {
-           session = HibernateUtil.getSessionFactory().openSession();
-           session.beginTransaction();
-           session.save(order);
-           session.getTransaction().commit();
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка при вставке", JOptionPane.OK_OPTION);
-       } finally {
-           if (session != null && session.isOpen()) {
 
-               session.close();
-           }
-       }
-}}
+}
 

@@ -13,6 +13,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
-        <mapping class="TestServlet.dao.Order"/>
+        <mapping class="TestServlet.dao.OrderEntity"/>
     </session-factory>
 </hibernate-configuration>

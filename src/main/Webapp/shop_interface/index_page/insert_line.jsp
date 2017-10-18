@@ -1,5 +1,5 @@
 <%@ page import="TestServlet.service.OrderBean" %>
-<%@ page import="TestServlet.dao.Product" %>
+<%@ page import="TestServlet.service.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/insert_line_style.css">

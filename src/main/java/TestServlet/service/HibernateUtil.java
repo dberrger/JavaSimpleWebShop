@@ -1,4 +1,4 @@
-package TestServlet.dao;
+package TestServlet.service;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

@@ -1,12 +1,9 @@
 package TestServlet.controller;
 
-import TestServlet.dao.ItemQuantityPrice;
-import TestServlet.dao.Order;
-import TestServlet.dao.Product;
+import TestServlet.service.ItemQuantityPrice;
+import TestServlet.service.Product;
 import TestServlet.service.OrderBean;
-import TestServlet.service.ProductManager;
 
-import javax.ejb.Singleton;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.Principal;
 import java.util.ArrayList;
 
 @WebServlet(name = "ShoppingCardServlet", urlPatterns = "/ShoppingCardServlet")
@@ -85,7 +80,7 @@ public class ShoppingCardServlet extends HttpServlet {
             session.setAttribute("listOfQuantities", listofQuantities);
             session.setAttribute("sumOfCard", sumOfCard);
             session.setAttribute("productCount", productCount);
-            System.out.println("card size there" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());
+            System.out.println("card size there" + ((OrderBean) session.getAttribute("productToOrder")).getListOfItemQuantityPrice().size());
 
         }
 

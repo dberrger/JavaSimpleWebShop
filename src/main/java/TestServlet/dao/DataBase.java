@@ -1,8 +1,6 @@
 package TestServlet.dao;
 
-import TestServlet.dao.Product;
-import org.hibernate.Hibernate;
-import org.hibernate.SessionFactory;
+import TestServlet.service.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;

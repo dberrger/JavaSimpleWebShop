@@ -72,7 +72,7 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<a href=\"#\">DE</a>");
         printWriter.println("<a href=\"#\" >History <!-- for non registered user????--></a>");
         printWriter.println("<a href=\"../shop_interface/cart/cart.jsp\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Card</a>");
-        printWriter.println("<a id=\"order_red\" href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Order</a>");
+        printWriter.println("<a id=\"order_red\" href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">OrderEntity</a>");
         printWriter.println("</nav>");
         printWriter.println("<ul>");
         printWriter.println("<li><a href=\"#\">Login</a></li>");

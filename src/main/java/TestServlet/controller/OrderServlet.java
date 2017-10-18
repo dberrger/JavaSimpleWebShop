@@ -1,7 +1,8 @@
 package TestServlet.controller;
 
-import TestServlet.dao.ItemQuantityPrice;
-import TestServlet.service.OrderPrep;
+import TestServlet.service.ItemQuantityPrice;
+import TestServlet.service.OrderManager;
+import TestServlet.service.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,11 +23,25 @@ public class OrderServlet extends HttpServlet {
         System.out.println(request.getParameter("customer_address"));
         HttpSession session = request.getSession();
         ArrayList<ItemQuantityPrice> listOfItemQuantityPriceToAdd = (ArrayList<ItemQuantityPrice>)session.getAttribute("listOfItemQuantityPrice");
-        OrderPrep orderPrep = new OrderPrep();
-        orderPrep.addOrder(request.getParameter("customer_name"),request.getParameter("customer_address"),listOfItemQuantityPriceToAdd);
+        ArrayList<Product> listOfProducts = (ArrayList<Product>)session.getAttribute("listOfProducts");
+        ArrayList<Integer> listOfQuantities = (ArrayList<Integer>)session.getAttribute("listOfQuantities");
+        ArrayList<Integer> listOfPrices = (ArrayList<Integer>)session.getAttribute("listOfPrices");
+
+        OrderManager orderManager = new OrderManager();
+        orderManager.addOrder(request.getParameter("customer_name"),request.getParameter("customer_address"),listOfItemQuantityPriceToAdd);
 
         printWriter.println("OK!");
         listOfItemQuantityPriceToAdd.clear();
+        listOfProducts.clear();
+        listOfPrices.clear();
+        listOfQuantities.clear();
+
+        session.removeAttribute("sumOfCard");
+        session.removeAttribute("productCount");
+        session.removeAttribute("listOfItemQuantityPrice");
+        session.removeAttribute("listOfProducts");
+        session.removeAttribute("listOfQuantities");
+        session.removeAttribute("listOfPrices");
         //TODO session.removeAtr('')
         //Clear all lists.
         //----------------------
