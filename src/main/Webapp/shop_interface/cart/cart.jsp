@@ -25,7 +25,7 @@
     <c:otherwise>
         <div id="content_wrapper">
             <div id="filter_block">
-                <h1 class="Your_order">Your orderEntity: </h1>
+                <h1 class="Your_order">Your order: </h1>
                 <div class="card_info_wrapper">
                     <img src="../sad_smile.png" style="width: 100px">
                     <div id="card_info_wrapper_1">
@@ -36,7 +36,14 @@
                             class="Total_cost"> Total cost: </span><span
                             class="Total_cost_price"> ${sessionScope.sumOfCard}$</span>
                     </div>
+                    <c:choose>
+                    <c:when test="${!pageContext.request.isUserInRole('tomcat')}">
                     <button id="#" class="add_to_card" onclick="alert('Вы не авторизованы!')">BUY</button>
+                    </c:when>
+                        <c:otherwise>
+                            <button id="#" class="add_to_card" onclick="location.href='../secured/orderList.jsp'">BUY</button>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             <div id="product_list_block"></div>

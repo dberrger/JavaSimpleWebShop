@@ -18,6 +18,7 @@ public class MyProfile extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
         HttpSession session = request.getSession();
+
         printWriter.println("Hidden page! <br> your name is:"+request.getUserPrincipal().getName());
         printWriter.println("Default tab is:"+session.getAttribute("default_tab"));
 

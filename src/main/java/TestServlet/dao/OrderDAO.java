@@ -38,6 +38,7 @@ public class OrderDAO {
             Query query = session.createQuery("FROM OrderEntity as OE WHERE OE.IDCustomer = :customerID");
             query.setParameter("customerID", customerID);
             orders = query.list();
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

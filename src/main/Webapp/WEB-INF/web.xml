@@ -41,12 +41,14 @@
     <!-- Auntefication -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>
-                Entire Application
-            </web-resource-name>
+            <web-resource-name>CartInfo</web-resource-name>
             <url-pattern>/MyProfile</url-pattern>
             <url-pattern>/OrderServlet</url-pattern>
-            <url-pattern>/secured/*</url-pattern>
+            <url-pattern>/History</url-pattern>
+            <url-pattern>/Invalidate</url-pattern>
+            <url-pattern>/shop_interface/secured/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
         </web-resource-collection>
         <auth-constraint>
             <role-name>tomcat</role-name>

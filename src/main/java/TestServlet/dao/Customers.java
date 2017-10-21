@@ -5,19 +5,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Customers {
-    Map<Integer, String> map = new HashMap<Integer, String>();
+    Map<String, Integer> map = new HashMap<String, Integer>();
 
     public Customers() {
-        map.put(0, "tom");
-        map.put(1, "sergei");
-        map.put(2, "alina");
+        map.put("tom", 2);
+        map.put("sergi", 1);
     }
 
-    public Map<Integer, String> getMap() {
+    public Map<String, Integer> getMap() {
         return map;
     }
 
-    public void setMap(Map<Integer, String> map) {
+    public void setMap(Map<String, Integer> map) {
         this.map = map;
     }
 }

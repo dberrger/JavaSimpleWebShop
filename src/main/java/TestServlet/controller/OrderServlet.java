@@ -17,8 +17,11 @@ import java.util.ArrayList;
 @WebServlet(name = "OrderServlet", urlPatterns = "/OrderServlet")
 public class OrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getCharacterEncoding());
+        request.setCharacterEncoding("UTF-8");
+        String str = new String(request.getParameter("customer_name").getBytes("ISO-8859-1"),"UTF8");
+        System.out.println(str);
         PrintWriter printWriter = response.getWriter();
-        response.setCharacterEncoding("UTF-8");
         System.out.println(request.getParameter("customer_name"));
         System.out.println(request.getParameter("customer_address"));
         HttpSession session = request.getSession();
@@ -28,7 +31,7 @@ public class OrderServlet extends HttpServlet {
         ArrayList<Integer> listOfPrices = (ArrayList<Integer>)session.getAttribute("listOfPrices");
 
         OrderManager orderManager = new OrderManager();
-        orderManager.addOrder(request.getParameter("customer_name"),request.getParameter("customer_address"),listOfItemQuantityPriceToAdd);
+        orderManager.addOrder(request.getUserPrincipal().getName(),request.getParameter("customer_name"),request.getParameter("customer_address"),listOfItemQuantityPriceToAdd);
 
         printWriter.println("OK!");
         listOfItemQuantityPriceToAdd.clear();

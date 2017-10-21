@@ -14,6 +14,7 @@
     <a onclick="t('en')">EN </a>
     <a onclick="t('de')">DE </a>
 </div>
+<jsp:include page="/History"/>
 <c:choose>
     <c:when test="${empty sessionScope.listOfProductsHistory}">
         <div id="empty_case_wrapper"><h1 id="empty_case">Your history is empty!</h1></div>
@@ -21,6 +22,9 @@
     </c:when>
     <c:otherwise>
         <div id="content_wrapper">
+            <div id="filter_block" style="visibility: hidden">
+
+            </div>
             <div id="product_list_block"></div>
             <table id="cardTableList">
                 <c:forEach varStatus="curr" var="item" items="${sessionScope.listOfProductsHistory}">
@@ -62,7 +66,10 @@
                             <span class="Quantity"> Quantity:</span>
                             <span class="Quantity_item">${sessionScope.listOfQuantitiesHistory.get((curr.index))} </span>
                         </div>
-
+                        <div>
+                            <span class="Quantity"> Date:</span>
+                            <span class="Quantity_item">${sessionScope.dateTimesHistory.get((curr.index))} </span>
+                        </div>
                     </td>
                     </tbody>
                 </c:forEach>

@@ -22,8 +22,8 @@
             <a href="#" >History <!-- for non registered user???? --></a>
 
             <a href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt="">Card</a>
-            <c:if test="${pageContext.request.isUserInRole('tomcat')}">
-                <a id="order_red" href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt="">Order</a>
+            <c:if test="${pageContext.request.isUserInRole('tomcat') && (not empty sessionScope.listOfProducts)}">
+                <a id="order_red" href="../secured/orderList.jsp"><img src="../shopping_cart.png" width="15px" alt="">Order</a>
             </c:if>
 
             <ul>
@@ -44,10 +44,12 @@
             Your <a href="/MyProfile" style="color: coral;">profile</a>
             You can <a href="/Invalidate">log out</a>
         </c:if>
-        <ul>
-            <li><a href="/MyProfile">Login</a></li>
-            <li><a href="#">Sign up</a></li>
-        </ul>
+        <c:if test="${not pageContext.request.isUserInRole('tomcat')}">
+            <ul>
+                <li><a href="/MyProfile">Login</a></li>
+                <li><a href="#">Sign up</a></li>
+            </ul>
+        </c:if>
     </div>
 </header>
 </body>

@@ -21,7 +21,9 @@
             <a href="#">DE</a>
             <a href="#" >History <!-- for non registered user???? --></a>
             <a href="/shop_interface/cart/cart.jsp"><img  src="/shop_interface/shopping_cart.png" width="15px" alt="">Card</a>
-            <a id="order_red" href="../cart/cart.jsp"><img src="/shop_interface/shopping_cart.png" width="15px" alt="">Order</a>
+            <c:if test="${pageContext.request.isUserInRole('tomcat') && (not empty sessionScope.listOfProducts)}">
+                <a id="order_red" href="/shop_interface/secured/orderList.jsp"><img src="/shop_interface/shopping_cart.png" width="15px" alt="">Order</a>
+            </c:if>
             <ul style="padding-top: 21px;">
                 <c:choose>
                     <c:when test="${empty sessionScope.listOfProducts}">
@@ -34,11 +36,18 @@
                 </c:choose>
             </ul>
         </nav>
-
+        <c:if test="${pageContext.request.isUserInRole('tomcat')}">
+            <c:out value="Hello, ${pageContext.request.userPrincipal.name}"/>
+            <br>
+            Your <a href="/MyProfile" style="color: coral;">profile</a>
+            You can <a href="/Invalidate">log out</a>
+        </c:if>
+        <c:if test="${not pageContext.request.isUserInRole('tomcat')}">
         <ul>
             <li><a href="#">Login</a></li>
             <li><a href="#">Sign up</a></li>
         </ul>
+        </c:if>
     </div>
 </header>
 </body>

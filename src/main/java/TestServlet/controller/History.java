@@ -29,15 +29,16 @@ public class History extends HttpServlet {
 
 
         OrderManager orderManager = new OrderManager();
-        ArrayList<ItemQuantityPrice> history = orderManager.getOrders(2);
+        ArrayList<ItemQuantityPrice> history = orderManager.getOrders(customers.getMap().get(request.getUserPrincipal().getName()));
+
         //************************************************************************************
         ArrayList<Product> products = new ArrayList<Product>();
         ArrayList<Integer> quantities = new ArrayList<Integer>();
         ArrayList<String> dateTimes = new ArrayList<String>();
-        for (int i = 0; i < history.size(); i++) {
-            products.add(history.get(i).getProduct());
-            quantities.add(history.get(i).getQuantity());
-            dateTimes.add(history.get(i).getDateTime());
+        for (ItemQuantityPrice aHistory : history) {
+            products.add(aHistory.getProduct());
+            quantities.add(aHistory.getQuantity());
+            dateTimes.add(aHistory.getDateTime());
         }
         session.setAttribute("listOfProductsHistory", products);
         session.setAttribute("listOfQuantitiesHistory", quantities);
@@ -45,6 +46,8 @@ public class History extends HttpServlet {
         System.out.println(products);
         System.out.println(quantities);
         System.out.println(dateTimes);
+
+
 
     }
 }
