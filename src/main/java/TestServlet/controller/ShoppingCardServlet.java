@@ -55,7 +55,6 @@ public class ShoppingCardServlet extends HttpServlet {
             System.out.println("card size here" + ((OrderBean) session.getAttribute("productToOrder")).getListOfProducts().size());*/
             //------------------------
 
-
         } else if (session.getAttribute("productToOrder") != null) {
             System.out.println("There!");
             System.out.println("pio " + session.getAttribute("productToOrder"));
