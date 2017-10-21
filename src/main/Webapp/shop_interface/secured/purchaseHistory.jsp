@@ -23,7 +23,6 @@
     <c:otherwise>
         <div id="content_wrapper">
             <div id="filter_block" style="visibility: hidden">
-
             </div>
             <div id="product_list_block"></div>
             <table id="cardTableList">

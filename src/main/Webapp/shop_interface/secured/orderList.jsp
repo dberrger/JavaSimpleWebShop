@@ -58,6 +58,6 @@
     </div>
 </div>
 </body>
-<script src="map.js" type="text/javascript"></script>
-<script src="order_tabs.js" type="text/javascript"></script>
+<script src="secured_js/map.js" type="text/javascript"></script>
+<script src="secured_js/order_tabs.js" type="text/javascript"></script>
 </html>
