@@ -1,7 +1,6 @@
 package TestServlet.service;
 
 import TestServlet.dao.DataBase;
-import TestServlet.dao.Product;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

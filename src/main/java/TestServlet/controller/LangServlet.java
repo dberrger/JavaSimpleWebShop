@@ -40,6 +40,12 @@ public class LangServlet extends javax.servlet.http.HttpServlet {
         ru_content.put("Available", "В наличии: ");
         ru_content.put("Price", "Стоимость:");
 
+        ru_content.put("Quantity", "Количество: ");
+        ru_content.put("Current_price", "Цена: ");
+        ru_content.put("Total_cost", "Цена заказа:");
+        ru_content.put("Card_info", "продуктов в корзине");
+        ru_content.put("Your_order", "Ваш заказ:");
+
         de_content.put("Quick view", "Kurz");
         de_content.put("More info", "mehr");
         de_content.put("Reviews", "Bewertungen");
@@ -56,6 +62,12 @@ public class LangServlet extends javax.servlet.http.HttpServlet {
         de_content.put("Genre", "Genre: ");
         de_content.put("Available", "Auf Lager: ");
         de_content.put("Price", "Preis: ");
+
+        de_content.put("Quantity", "Anzahl der: ");
+        de_content.put("Current_price", "Preis: ");
+        de_content.put("Total_cost", "Auftragspreis:");
+        de_content.put("Card_info", "produkte in warenkorb.");
+        de_content.put("Your_order", "Ihre Bestellung: ");
 
 
         en_content.put("Quick view", "Quick view");
@@ -74,6 +86,12 @@ public class LangServlet extends javax.servlet.http.HttpServlet {
         en_content.put("Genre", "Genre: ");
         en_content.put("Available", "Available: ");
         en_content.put("Price", "Price: ");
+
+        en_content.put("Quantity", "Quantity: ");
+        en_content.put("Current_price", "Current price: ");
+        en_content.put("Total_cost", "Total cost:");
+        en_content.put("Card_info", "products in the card.");
+        en_content.put("Your_order", "Your order: ");
 
         String request_language = request.getParameter("lang");
         System.out.println(request_language);

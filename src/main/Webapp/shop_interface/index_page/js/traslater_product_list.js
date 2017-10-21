@@ -20,10 +20,21 @@ function t(request_language) {
             map.set(4, "Country");
             map.set(5, "Price");
             map.set(6, "add_to_card");
-            map.set(7, "zdarova");
-            for(var i=0;i<7;i++) {
-                for (var j = 0; j < 7; j++) {
-                document.getElementsByClassName(map.get(j))[i].innerHTML = responseData[map.get(j)];
+            map.set(7, "Quantity");
+            map.set(8, "Current_price");
+            map.set(9, "Total_cost");
+            map.set(10, "Card_info");
+            map.set(11, "Your_order");
+
+
+
+            for (var i = 0; i < 7; i++) {
+                for (var j = 0; j < 12; j++) {
+                    if (document.getElementsByClassName(map.get(j))[i] === undefined) {
+                        console.log("UNDEF!")
+                    } else {
+                        document.getElementsByClassName(map.get(j))[i].innerHTML = responseData[map.get(j)];
+                    }
                 }
             }
         }

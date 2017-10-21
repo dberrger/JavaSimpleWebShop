@@ -1,6 +1,5 @@
 package TestServlet.controller;
 
-import TestServlet.dao.Product;
 import TestServlet.service.ProductManager;
 import org.json.simple.JSONObject;
 

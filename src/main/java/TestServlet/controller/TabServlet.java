@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -33,6 +34,7 @@ public class TabServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String requestData = request.getParameter("productID");
         ProductManager productManager = new ProductManager();
         String album =productManager.getElementById(Integer.parseInt(requestData)).getAlbum();
@@ -42,7 +44,8 @@ public class TabServlet extends HttpServlet {
         String genre = productManager.getElementById(Integer.parseInt(requestData)).getGenre();
         String year = productManager.getElementById(Integer.parseInt(requestData)).getYear();
         int price = productManager.getElementById(Integer.parseInt(requestData)).getPrice();
-
+        HttpSession session =request.getSession();
+        session.setAttribute("default_tab",getInitParameter("default_tab"));
 
         PrintWriter printWriter = response.getWriter();
         printWriter.println("<!DOCTYPE html>");
@@ -51,35 +54,38 @@ public class TabServlet extends HttpServlet {
         printWriter.println("<meta charset=\"UTF-8\">");
         printWriter.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"/shop_interface/product_cart/style.css\">");
         printWriter.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-        printWriter.println("<link rel=\"stylesheet\" href=\"/shop_interface/index_page/css/header-style.css\">");
+       // printWriter.println("<link rel=\"stylesheet\" href=\"/shop_interface/index_page/css/header-style.css\">");
         printWriter.println("<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>");
         printWriter.println("<title>LP</title>");
         printWriter.println("</head>");
         printWriter.println("<body onload=\"init("+getInitParameter("default_tab")+")\">");
-        printWriter.println("<header class=\"header-login-signup\">");
+        //TODO add like this
+        request.getRequestDispatcher("/shop_interface/index_page/headerProductCard.jsp").include(request,response);
+
+       /* printWriter.println("<header class=\"header-login-signup\">");
         printWriter.println("<div class=\"header-limiter\">");
-        printWriter.println("<h1><a href=\"#\">Vinyl<span>shop</span></a></h1>");
+        printWriter.println("<h1><a href=\"../shop_interface/index_page/productList.jsp\">Vinyl<span>shop</span></a></h1>");
         printWriter.println(" <nav>");
         printWriter.println("<a href=\"#\">Home</a>");
         printWriter.println("<a href=\"#\">RU</a>");
         printWriter.println("<a href=\"#\">EN</a>");
         printWriter.println("<a href=\"#\">DE</a>");
         printWriter.println("<a href=\"#\" >History <!-- for non registered user????--></a>");
-        printWriter.println("<a href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Card</a>");
-        printWriter.println("<a id=\"order_red\" href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Order</a>");
+        printWriter.println("<a href=\"../shop_interface/cart/cart.jsp\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">Card</a>");
+        printWriter.println("<a id=\"order_red\" href=\"#\"><img src=\"/shop_interface/shopping_cart.png\" width=\"15px\" alt=\"shopping_cart\">OrderEntity</a>");
         printWriter.println("</nav>");
         printWriter.println("<ul>");
         printWriter.println("<li><a href=\"#\">Login</a></li>");
         printWriter.println("<li><a href=\"#\">Sign up</a></li>");
         printWriter.println("</ul>");
         printWriter.println("</div>");
-        printWriter.println("</header>");
+        printWriter.println("</header>");*/
         printWriter.println("<div class=\"wrap\">");
         printWriter.println("<div class=\"product_header\">");
         printWriter.println("<h1>Product card</h1>");
         printWriter.println("</div>");
         printWriter.println("<div id=\"nav_list\">");
-        printWriter.println("<ul>");
+        printWriter.println("<ul id=\"card_tabs\">");
         printWriter.println("<li class=\"Quick view\" onclick=\"quickReview()\">Quick view</li>");
         printWriter.println("<li class=\"Reviews\" onclick=\"reviews()\">Reviews</li>");
         printWriter.println("<li class=\"More info\" onclick=\"moreInfo()\">More info</li>");

@@ -18,7 +18,9 @@
         <description></description>
         <display-name>TabServlet</display-name>
         <servlet-name>TabServlet</servlet-name>
+
         <servlet-class>TestServlet.controller.TabServlet</servlet-class>
+
 
         <init-param>
             <param-name>lang</param-name>
@@ -28,10 +30,41 @@
             <param-name>default_tab</param-name>
             <param-value>1</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>TabServlet</servlet-name>
         <url-pattern>/TabServlet</url-pattern>
     </servlet-mapping>
+
+
+    <!-- Auntefication -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>CartInfo</web-resource-name>
+            <url-pattern>/MyProfile</url-pattern>
+            <url-pattern>/OrderServlet</url-pattern>
+            <url-pattern>/History</url-pattern>
+            <url-pattern>/Invalidate</url-pattern>
+            <url-pattern>/shop_interface/secured/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tomcat</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <!-- Define the Login Configuration for this Application -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>My Club Members-only Area</realm-name>
+        <form-login-config>
+            <form-login-page>/shop_interface/login/login_page.jsp</form-login-page>
+            <form-error-page>/shop_interface/login/error_login_page.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>tomcat</role-name>
+    </security-role>
 
 </web-app>

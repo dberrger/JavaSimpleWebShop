@@ -1,5 +1,7 @@
-package TestServlet.dao;
+package TestServlet.service;
 
+
+import TestServlet.dao.DataBase;
 
 import javax.persistence.OneToMany;
 import java.io.Serializable;
@@ -15,8 +17,6 @@ public class Product implements Serializable {
     private String genre;
     private int price;
     private String album_cover;
-    @OneToMany
-    private ArrayList<ProductInOrder> productInOrders;
 
     public int getId() {
         return id;
@@ -107,13 +107,6 @@ public class Product implements Serializable {
         this.dataBase = dataBase;
     }
 
-    public ArrayList<ProductInOrder> getProductInOrders() {
-        return productInOrders;
-    }
-
-    public void setProductInOrders(ArrayList<ProductInOrder> productInOrders) {
-        this.productInOrders = productInOrders;
-    }
 
 }
 

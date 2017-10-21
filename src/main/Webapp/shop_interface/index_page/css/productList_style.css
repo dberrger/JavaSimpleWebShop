@@ -8,8 +8,12 @@
 #filter_block{
     float:left;
     width: 296px;
-    height: 570px;
+    height: 520px;
     background-color: #dce6f7;
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 5px;
+
 }
 #product_list_block{
     float: left;
@@ -17,6 +21,7 @@
 #content_wrapper{
     margin-left: 20%;
     margin-top: 2%;
+    width: 50%;
 }
 #your_order{
     font-size: 30px;

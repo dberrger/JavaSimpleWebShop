@@ -7,26 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login, Sign up Header</title>
 
-    <link rel="stylesheet" href="../index_page/css/header-style.css">
+    <link rel="stylesheet" href="/shop_interface/index_page/css/header-style.css">
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body style="margin: -20px;">
 <header class="header-login-signup">
     <div class="header-limiter">
-        <h1><a href="../index_page/productList.jsp">Vinyl<span>shop</span></a></h1>
-        <nav>
-            <a href="#">Home</a>
+        <h1><a href="/shop_interface/index_page/productList.jsp">Vinyl<span>shop</span></a></h1>
+        <nav style="margin: -15px;">
+            <a href="#" >Home</a>
             <a href="#">RU</a>
             <a href="#">EN</a>
             <a href="#">DE</a>
             <a href="#" >History <!-- for non registered user???? --></a>
-
-            <a href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt="">Card</a>
+            <a href="/shop_interface/cart/cart.jsp"><img  src="/shop_interface/shopping_cart.png" width="15px" alt="">Card</a>
             <c:if test="${pageContext.request.isUserInRole('tomcat') && (not empty sessionScope.listOfProducts)}">
-                <a id="order_red" href="../secured/orderList.jsp"><img src="../shopping_cart.png" width="15px" alt="">Order</a>
+                <a id="order_red" href="/shop_interface/secured/orderList.jsp"><img src="/shop_interface/shopping_cart.png" width="15px" alt="">Order</a>
             </c:if>
-
-            <ul>
+            <ul style="padding-top: 21px;">
                 <c:choose>
                     <c:when test="${empty sessionScope.listOfProducts}">
                         Your card is empty
@@ -39,16 +37,16 @@
             </ul>
         </nav>
         <c:if test="${pageContext.request.isUserInRole('tomcat')}">
-        <c:out value="Hello, ${pageContext.request.userPrincipal.name}"/>
+            <c:out value="Hello, ${pageContext.request.userPrincipal.name}"/>
             <br>
             Your <a href="/MyProfile" style="color: coral;">profile</a>
             You can <a href="/Invalidate">log out</a>
         </c:if>
         <c:if test="${not pageContext.request.isUserInRole('tomcat')}">
-            <ul>
-                <li><a href="/MyProfile">Login</a></li>
-                <li><a href="#">Sign up</a></li>
-            </ul>
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign up</a></li>
+        </ul>
         </c:if>
     </div>
 </header>

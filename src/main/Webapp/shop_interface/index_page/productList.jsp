@@ -1,6 +1,6 @@
 <%@ page import="TestServlet.dao.DataBase" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="TestServlet.dao.Product" %>
+<%@ page import="TestServlet.service.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -10,8 +10,8 @@
     <title>VinylShop</title>
     <jsp:useBean id="products" class="TestServlet.service.ProductManager" scope="session"/>
     <jsp:useBean id="db" class="TestServlet.dao.DataBase" scope="session"/>
-    <jsp:useBean id="order" class="TestServlet.service.OrderBean" scope="session"/>
-    <jsp:useBean id="productInCard" class="TestServlet.dao.Product" scope="session"/>
+    <jsp:useBean id="orderEntity" class="TestServlet.service.OrderBean" scope="session"/>
+    <jsp:useBean id="productInCard" class="TestServlet.service.Product" scope="session"/>
 
     <link rel="stylesheet" href="css/productList_style.css">
 </head>
@@ -38,17 +38,19 @@
         </div>
 
     </div>
-    <div id="aveMariia" ><p> List of kuplenniih:</p>
-
-
 </div>
     <div id="product_list_block">
 
         <table id="item_list">
-
+${pageContext.request.cookies[0].value}
+${pageContext.request.cookies[1].value}
+${pageContext.request.cookies[2].value}
+${pageContext.request.cookies[3].value}
+${pageContext.request.cookies[4].value}
             <c:choose>
-                <c:when test="${ pageContext.request.cookies[2].value.equals(\"t\")}">
-                    <% Cookie cookie = null;
+                <c:when test="${ pageContext.request.cookies[3].value.equals(\"t\")}">
+                    <% //Uncomment for cookie debug
+                         Cookie cookie = null;
                         Cookie[] cookies = null;
 
                         // Get an array of Cookies associated with the this domain
@@ -65,7 +67,7 @@
                             out.println("<h2>No cookies founds</h2>");
                         }
                     %>
-                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[0].value, pageContext.request.cookies[1].value)}">
+                    <c:forEach varStatus="curr" var="item" items="${products.FilterByPriceRange(pageContext.request.cookies[1].value, pageContext.request.cookies[2].value)}">
                         <jsp:include page="insert_line.jsp">
                             <jsp:param name="ffs" value="${item.id}"/>
                             <jsp:param name="artist" value="${item.artist}"/>

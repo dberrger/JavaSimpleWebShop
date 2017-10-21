@@ -1,6 +1,6 @@
 package TestServlet.dao;
 
-import TestServlet.dao.Product;
+import TestServlet.service.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,4 +33,5 @@ public class DataBase {
            return null;
         }
     }
+
 }
