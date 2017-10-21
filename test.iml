@@ -68,8 +68,9 @@
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:5.2.10.Final" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.6.6" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.3.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.7-dmr" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:jquery:2.1.4" level="project" />
   </component>
 </module>
