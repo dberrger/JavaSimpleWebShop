@@ -1,5 +1,5 @@
 function translate_purchase_history(request_language) {
-    alert(getCookie("lang_s"));
+   // alert(getCookie("lang_s"));
     var request = new XMLHttpRequest();
     var url = "/LangServlet";
     var params = "lang=" + request_language;
@@ -9,7 +9,7 @@ function translate_purchase_history(request_language) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var responseData = JSON.parse(request.response);
-            alert(request.response);
+          //  alert(request.response);
 
             var map = new Map();
             map.set(0, "Artist");

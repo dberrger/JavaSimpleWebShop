@@ -3,6 +3,7 @@ package TestServlet.service;
 import TestServlet.dao.Customers;
 import TestServlet.dao.OrderDAO;
 import TestServlet.dao.OrderEntity;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServlet;
 import java.io.Serializable;
@@ -10,8 +11,9 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class OrderManager implements Serializable{
-
+    final static Logger logger = Logger.getLogger(OrderManager.class);
     public void addOrder(String userID,String customer_name, String customer_address, ArrayList<ItemQuantityPrice> list) {
+        logger.info("adding customers Order to SQL DB");
         OrderEntity orderEntity = new OrderEntity();
         Customers customers = new Customers();
         String orderID = UUID.randomUUID().toString();
@@ -27,19 +29,21 @@ public class OrderManager implements Serializable{
             orderEntity.setProductID(list.get(i).getProduct().getId());
             orderEntity.setDateTimeOfOrder(currentTime);
             try {
+                logger.info("Sending OrderEntity to DAO layer");
                 OrderDAO.addData(orderEntity);
+                logger.info("Order was added to DB!");
             } catch (SQLException e) {
+                logger.error("EXEPTION!");
                 e.printStackTrace();
             }
         }
     }
 
     public ArrayList<ItemQuantityPrice> getOrders(int customerID){
-
+        logger.info("Gettin all orders from DB");
         List<OrderEntity> items = (List<OrderEntity>)OrderDAO.getCustomerOrdersByID(customerID);
-
+        logger.info("Gettin all orders from DB -> Success!");
         ArrayList<ItemQuantityPrice> list = new ArrayList<ItemQuantityPrice>();
-        System.out.println(items);
         ProductManager productManager = new ProductManager();
         for (OrderEntity item : items) {
 
@@ -49,6 +53,7 @@ public class OrderManager implements Serializable{
             itemQuantityPrice.setDateTime(item.getDateTimeOfOrder());
             list.add(itemQuantityPrice);
         }
+        logger.info("list with  ItemQuantityDate ready to return to servlet");
         return list;
     }
 }

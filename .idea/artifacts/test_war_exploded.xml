@@ -27,6 +27,7 @@
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.0.Final" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.7-dmr" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.4" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
         </element>
       </element>
       <element id="directory" name="META-INF">

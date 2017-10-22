@@ -1,5 +1,5 @@
 function translate_header(request_language) {
-    alert("Halo"+request_language);
+    //alert("Halo"+request_language);
     var request = new XMLHttpRequest();
     var url = "/LangServlet";
     var params = "lang=" + request_language;
@@ -10,7 +10,7 @@ function translate_header(request_language) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var responseData = JSON.parse(request.response);
-            alert(request.response);
+            //alert(request.response);
             var map = new Map();
             map.set(0, "header_cart");
             map.set(1, "header_order");

@@ -27,7 +27,7 @@ function ajaxPOST(extra_value) {
     var params = "params="+document.getElementById("comment_text_area").value+extra_value;
 
     //var f = callback || function (data) {};
-    alert("!hello ");
+   // alert("!hello ");
     var request = new XMLHttpRequest();
     var url = "/CommentHandler";
     request.onreadystatechange = function () {
