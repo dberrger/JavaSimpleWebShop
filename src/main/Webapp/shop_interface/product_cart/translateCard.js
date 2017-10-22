@@ -33,4 +33,3 @@ function translate(responseData) {
     }
 }
 
-//window.onload = func("en");

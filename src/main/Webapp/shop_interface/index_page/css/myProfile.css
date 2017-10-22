@@ -1,8 +1,9 @@
 .ordering {
-    margin-left: 20%;
-    margin-top: 2%;
-    width: 1100px;
-    height: 560px;
+margin-left: 20%;
+margin-right: 20%;
+margin-top: 2%;
+margin-bottom: 2%;
+padding: 30px;
 
 }
 
@@ -37,7 +38,7 @@ input[type=submit]:hover {
 
 }
 
-.review_order {
+.order_header {
     text-align: left;
     padding-left: 20px;
     font-family: Georgia, serif;
@@ -49,26 +50,37 @@ input[type=submit]:hover {
 }
 
 .form_wrapper {
-    padding-left: 30px;
+    padding-left: 40px;
     padding-top: 10px;
     float: left;
-    width: 430px;
+    width: 470px;
 
 
 }
 
-#map_wrapper, #map {
-    float: right;
+
+
+.text_1{
+    text-align: left;
+    padding-left: 15px;
+    font-family: Georgia, serif;
+    color: #4E443C;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 100;
+    margin-bottom: 0;
 }
-#courier_block_wrapper{
-    float: right;
-    margin-right: 150px;
+
+#comment_text_area{
+    border: 2px solid #66b0ff;
+    border-radius: 4px;
 }
-.total_price_msg{
-    padding-left:  10px;
+
+.comment_area_wrapper{
+    margin-left: 30px;
+    margin-right: 100px;
 }
-.courier_text{
-    font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-    font-size: 14px;
-    margin-top: .5em; color: #666;
+
+.last_comments{
+    font-size: 40px;
 }

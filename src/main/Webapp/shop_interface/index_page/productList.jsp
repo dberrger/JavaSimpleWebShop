@@ -1,9 +1,5 @@
-<%@ page import="TestServlet.dao.DataBase" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="TestServlet.service.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 
 <html>
 <head>
@@ -18,29 +14,27 @@
 <body id="wrapper">
 
 <jsp:include page="header.jsp"/>
+
 <br>
 <div id="languages">
-    <a onclick="t('ru')">RU </a>
-    <a onclick="t('en')">EN </a>
-    <a onclick="t('de')">DE </a>
+    <a class="language_button" onclick="t('ru')">RU </a>
+    <a class="language_button" onclick="t('en')">EN </a>
+    <a class="language_button" onclick="t('de')">DE </a>
 </div>
 <div id="content_wrapper">
     <div id="filter_block">
-        <p>Product filter..</p>
-        <div>Sort by price ascending</div>
-        <div>Sort by price descending</div>
-        <div>Price
+        <p class="product_filter">Product filter by price</p>
+        <div>
             <form>
                 <input type="text" id="lowerBound">
                 <input type="text" id="upperBound">
-                <input type="button" value="send" onclick="productFilter('lowerBound','upperBound')"/>
+                <input type="button" value="OK" onclick="productFilter('lowerBound','upperBound')"/>
             </form>
         </div>
 
     </div>
 </div>
     <div id="product_list_block">
-
         <table id="item_list">
 ${pageContext.request.cookies[0].value}
 ${pageContext.request.cookies[1].value}
