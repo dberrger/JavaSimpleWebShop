@@ -3,6 +3,7 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true">
     <file url="file://$PROJECT_DIR$/src/main/Webapp/shop_interface/secured/secured_js/map.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/TestServlet/controller/CommentHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TestServlet/controller/LangServlet.java" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

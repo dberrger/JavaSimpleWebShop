@@ -9,15 +9,12 @@
 <body id="wrapper">
 <jsp:include page="../index_page/header.jsp"/>
 <br>
-<div id="languages">
-    <a onclick="t('ru')">RU </a>
-    <a onclick="t('en')">EN </a>
-    <a onclick="t('de')">DE </a>
-</div>
+
 <jsp:include page="/History"/>
+<div id="history_wrapper"><h1 class="Your_history">Your history:</h1></div>
 <c:choose>
     <c:when test="${empty sessionScope.listOfProductsHistory}">
-        <div id="empty_case_wrapper"><h1 id="empty_case">Your history is empty!</h1></div>
+        <div id="empty_case_wrapper"><h1 id="empty_case" class="Your_history_empty">Your history is empty!</h1></div>
         <img id="sad_smile" src="../sad_smile.png">
     </c:when>
     <c:otherwise>
@@ -66,8 +63,8 @@
                             <span class="Quantity_item">${sessionScope.listOfQuantitiesHistory.get((curr.index))} </span>
                         </div>
                         <div>
-                            <span class="Quantity"> Date:</span>
-                            <span class="Quantity_item">${sessionScope.dateTimesHistory.get((curr.index))} </span>
+                            <span class="Date_purchase"> Date:</span>
+                            <span class="Date_purchase_item">${sessionScope.dateTimesHistory.get((curr.index))} </span>
                         </div>
                     </td>
                     </tbody>
@@ -77,6 +74,9 @@
     </c:otherwise>
 </c:choose>
 </body>
-<script type="text/javascript" src="../index_page/js/traslater_product_list.js"></script>
 <script type="text/javascript" src="../index_page/js/cardTransition.js"></script>
+<script src="../index_page/js/header_translater.js" type="text/javascript"></script>
+<script src="../index_page/js/order_list_translater.js" type="text/javascript"></script>
+<script src="../index_page/js/traslater_product_list.js" type="text/javascript"></script>
+<script src="../index_page/js/purchase_history_translater.js" type="text/javascript"></script>
 </html>

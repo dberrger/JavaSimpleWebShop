@@ -1,32 +1,37 @@
 function addComment(content) {
 for(var i=0; i< Object.keys(content).length; i++) {
     var divToInsert = document.createElement("div");
-    var divToInsert1 = document.createElement("div");
-    var hr = document.createElement("hr");
-    divToInsert.innerHTML = content[i][0];
-    divToInsert1.innerHTML = content[i][1];
+    var spanToInsert1 = document.createElement("span");
+    var spanToInsert2 = document.createElement("span");
 
+    spanToInsert1.className = "text_1";
+    spanToInsert1.innerHTML = content[i][0];
+    spanToInsert2.innerHTML = content[i][1];
+    divToInsert.style.height = "50px";
+    divToInsert.style.backgroundColor = '#d6f4fa';
+    divToInsert.style.border = "2px solid black";
+    divToInsert.style.borderRadius = "8px";
+    divToInsert.style.margin = "10px";
+    divToInsert.style.padding = "10px";
+    divToInsert.style.marginRight = "300px";
+    spanToInsert2.style.float ="right";
+    divToInsert.appendChild(spanToInsert1);
+    divToInsert.appendChild(spanToInsert2);
     document.getElementById("latest_comments_insert").appendChild(divToInsert);
-    document.getElementById("latest_comments_insert").appendChild(divToInsert1);
-    document.getElementById("latest_comments_insert").appendChild(hr);
+
 }
 }
 
 
 function ajaxPOST(extra_value) {
-    alert(extra_value);
     var params = "params="+document.getElementById("comment_text_area").value+extra_value;
 
-    alert(params);
     //var f = callback || function (data) {};
     alert("!hello ");
     var request = new XMLHttpRequest();
     var url = "/CommentHandler";
-
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            alert("OK");
-            alert(request.response);
             var responseData = JSON.parse(request.response);
            addComment(responseData);
 

@@ -22,6 +22,7 @@
 </head>
 <body>
 <jsp:include page="../index_page/header.jsp"/>
+
 <br>
 <div id="languages">
     <a onclick="t('ru')">RU </a>
@@ -30,12 +31,12 @@
 </div>
 
 <div class="ordering">
-    <h1 class="order_header">Review your Order:</h1>
-<div class="order_sum">Total price of your order is: ${sessionScope.sumOfCard}$</div>
+    <h1 class="review_order">Review your Order:</h1>
+    <div><span class="total_price_msg">Total price of your order is: </span>${sessionScope.sumOfCard}$</div>
     <br>
     <div class="w3-bar w3-black  w3-light-grey">
-        <button class="w3-bar-item w3-button" onclick="delivery_case1()">courier</button>
-        <button class="w3-bar-item w3-button" onclick="delivery_case2()">by yourself</button>
+        <button  class="w3-bar-item w3-button by_courier" onclick="delivery_case1()">courier</button>
+        <button  class="w3-bar-item w3-button by_yourself" onclick="delivery_case2()">by yourself</button>
     </div>
 
     <div id="map_wrapper" class="w3-container city">
@@ -43,21 +44,25 @@
     </div>
 
     <div id="courier_block_wrapper" class="w3-container city" style="display:none">
-        <h2 class="courier_text">Write down your address...and our courier deviler your products <br>     <img src="../courier.png"></h2>
+        <h2 class="courier_text">Write down your address...and our courier deviler your products <br> </h2>
+        <img src="../courier.png">
     </div>
     <div class="form_wrapper">
         <form class="order_form" name="orderForm" action="/OrderServlet" method="post">
-            <p><b>Your name:</b><br>
+            <p><b class="your_name_order">Your name:</b><br>
                 <input name="customer_name" type="text" size="40">
             </p>
-            <p><b>Your address:</b><br>
+            <p><b id="adr"class="your_address_order">Your address:</b><br>
                 <input name="customer_address" id="address_form" type="text" size="40">
             </p>
-            <input type="submit" value="Send">
+            <input id="submit_button" type="submit" value="Send">
         </form>
     </div>
 </div>
 </body>
 <script src="secured_js/map.js" type="text/javascript"></script>
 <script src="secured_js/order_tabs.js" type="text/javascript"></script>
+<script src="../index_page/js/header_translater.js" type="text/javascript"></script>
+<script src="../index_page/js/order_list_translater.js" type="text/javascript"></script>
+<script src="../index_page/js/traslater_product_list.js" type="text/javascript"></script>
 </html>

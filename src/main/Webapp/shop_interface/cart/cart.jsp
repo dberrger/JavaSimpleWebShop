@@ -1,6 +1,3 @@
-<%@ page import="TestServlet.service.OrderBean" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="TestServlet.service.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,7 +16,7 @@
 </div>
 <c:choose>
     <c:when test="${empty sessionScope.listOfProducts}">
-        <div id="empty_case_wrapper"><h1 id="empty_case">Your card is empty!</h1></div>
+        <div id="empty_case_wrapper"><h1 class="empty_case">Your card is empty!</h1></div>
         <img id="sad_smile" src="../sad_smile.png">
     </c:when>
     <c:otherwise>
@@ -37,11 +34,12 @@
                             class="Total_cost_price"> ${sessionScope.sumOfCard}$</span>
                     </div>
                     <c:choose>
-                    <c:when test="${!pageContext.request.isUserInRole('tomcat')}">
-                    <button id="#" class="add_to_card" onclick="alert('Вы не авторизованы!')">BUY</button>
-                    </c:when>
+                        <c:when test="${!pageContext.request.isUserInRole('tomcat')}">
+                            <button id="#" class="add_to_card" onclick="alert('Вы не авторизованы!')">BUY</button>
+                        </c:when>
                         <c:otherwise>
-                            <button id="#" class="add_to_card" onclick="location.href='../secured/orderList.jsp'">BUY</button>
+                            <button id="#" class="add_to_card" onclick="location.href='../secured/orderList.jsp'">BUY
+                            </button>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -100,5 +98,6 @@
 </c:choose>
 </body>
 <script type="text/javascript" src="../index_page/js/traslater_product_list.js"></script>
+<script type="text/javascript" src="../index_page/js/header_translater.js"></script>
 <script type="text/javascript" src="../index_page/js/cardTransition.js"></script>
 </html>

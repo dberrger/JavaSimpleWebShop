@@ -13,9 +13,9 @@
     <div class="header-limiter">
         <h1><a href="../index_page/productList.jsp">Vinyl<span>shop</span></a></h1>
         <nav>
-            <a onclick=" translate_header('ru'); t('ru'); translate_order_list('ru'); translate_purchase_history('ru'); translate_myprofile('ru');">RU </a>
-            <a onclick="t('en'); translate_header('en');translate_order_list('en'); translate_purchase_history('en'); translate_myprofile('en');">EN </a>
-            <a onclick="t('de'); translate_header('de');translate_order_list('de'); translate_purchase_history('de'); translate_myprofile('de');">DE </a>
+            <a onclick=" translate_header('ru'); translate_login('ru');">RU </a>
+            <a onclick="translate_header('en'); translate_login('en');">EN </a>
+            <a onclick="translate_header('de'); translate_login('de');">DE </a>
             <a href="../cart/cart.jsp"><img src="../shopping_cart.png" width="15px" alt=""><span class="header_cart">Cart</span></a>
             <c:if test="${pageContext.request.isUserInRole('tomcat') && (not empty sessionScope.listOfProducts)}">
                 <a id="order_red" href="../secured/orderList.jsp"><img src="../shopping_cart.png" width="15px" alt=""><span class="header_order">Order</span></a>
@@ -45,11 +45,6 @@
         </c:if>
     </div>
 </header>
-<script type="text/javascript" src="../secured/secured_js/myprofile_translater.js"></script>
-<script type="text/javascript" src="js/traslater_product_list.js"></script>
-<script type="text/javascript" src="js/header_translater.js"></script>
-<script type="text/javascript" src="js/order_list_translater.js"></script>
-<script type="text/javascript" src="js/purchase_history_translater.js"></script>
 
 </body>
 </html>

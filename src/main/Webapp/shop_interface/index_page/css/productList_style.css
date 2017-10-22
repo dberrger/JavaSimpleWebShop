@@ -2,6 +2,8 @@
     display: inline-flex;
     float: right;
     font-size: 30px;
+    border-color: #608bd2;
+    border: 2px;
 
 }
 
