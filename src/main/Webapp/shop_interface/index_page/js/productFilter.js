@@ -59,9 +59,9 @@ function productFilter(lowerBound, upperBound) {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            alert(request.response);
+           // alert(request.response);
             var responseData = JSON.parse(request.response);
-            alert(request.response);
+           // alert(request.response);
             useFilter(responseData);
         }
     };

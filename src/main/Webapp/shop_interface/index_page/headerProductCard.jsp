@@ -16,7 +16,6 @@
             <a onclick="t('ru')">RU </a>
             <a onclick="t('en')">EN </a>
             <a onclick="t('de')">DE </a>
-            <a href="/shop_interface/cart/cart.jsp"><img  src="/shop_interface/shopping_cart.png" width="15px" alt=""><span class="header_cart">Cart</span></a>
             <c:if test="${pageContext.request.isUserInRole('tomcat') && (not empty sessionScope.listOfProducts)}">
                 <a id="order_red" href="/shop_interface/secured/orderList.jsp"><img src="/shop_interface/shopping_cart.png" width="15px" alt=""> <span class="header_order">Order</span></a>
             </c:if>
@@ -45,6 +44,10 @@
         </c:if>
     </div>
 </header>
+<script type="text/javascript" src="../secured/secured_js/myprofile_translater.js"></script>
 <script type="text/javascript" src="js/traslater_product_list.js"></script>
+<script type="text/javascript" src="js/header_translater.js"></script>
+<script type="text/javascript" src="js/order_list_translater.js"></script>
+<script type="text/javascript" src="js/purchase_history_translater.js"></script>
 </body>
 </html>

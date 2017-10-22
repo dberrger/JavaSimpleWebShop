@@ -1,11 +1,13 @@
 package TestServlet.dao;
 
 import TestServlet.service.Product;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DataBase {
+    final static Logger logger = Logger.getLogger(DataBase.class);
     public DataBase() {
 
     }
@@ -23,10 +25,12 @@ public class DataBase {
 
 
     public ArrayList<Product> getProductsBase() {
+        logger.info("get all products from DB");
         return productsBase;
     }
 
     public Product getElementByID(int productID){
+
         if(productsBase.get(productID)!=null){
         return productsBase.get(productID);}
         else{

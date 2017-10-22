@@ -1,6 +1,7 @@
 package TestServlet.controller;
 
 import TestServlet.service.ProductManager;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ public class FilterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        final Logger logger = Logger.getLogger(FilterServlet.class);
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
@@ -34,7 +36,7 @@ public class FilterServlet extends HttpServlet {
         response.addCookie(c);
         response.addCookie(d);
         response.addCookie(e);
-
+logger.warn("Heelooooo");
         out.println(toFilter.currentFilterToJSON(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound"))));
         System.out.println(toFilter.currentFilterToJSON(toFilter.FilterByPriceRange(request.getParameter("lowerBound"), request.getParameter("upperBound"))));
     }

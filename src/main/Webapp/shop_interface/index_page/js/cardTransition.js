@@ -3,7 +3,7 @@ function cardTransition(list) {
 alert(list);
 
     window.location ="http://localhost:8080/TabServlet?productID="+ list;
-    alert(list);
+    //alert(list);
     /*  var request = new XMLHttpRequest();
       var url = "/TabServlet" + "?productID="+list;
       request.open("get", url, true);

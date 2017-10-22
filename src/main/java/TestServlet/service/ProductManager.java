@@ -1,6 +1,7 @@
 package TestServlet.service;
 
 import TestServlet.dao.DataBase;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -8,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ProductManager implements Serializable {
+    final static Logger logger = Logger.getLogger(ProductManager.class);
+
     private DataBase products;
 
     public ProductManager() {
@@ -27,6 +30,7 @@ public class ProductManager implements Serializable {
     }
 
     public  ArrayList<Product> FilterByPriceRange(String lowerBound, String upperBound){
+        logger.info("Begin filter products with lowerBound = "+lowerBound+" and upperBound =  "+upperBound);
         int lb = Integer.parseInt(lowerBound);
         int ub = Integer.parseInt(upperBound);
         ArrayList<Product> filtered_products = new ArrayList<Product>();
@@ -35,10 +39,12 @@ public class ProductManager implements Serializable {
                filtered_products.add(products.getProductsBase().get(i));
            }
         }
+        logger.warn("Filter finished work! Success!");
         return filtered_products;
     }
 
     public JSONObject currentFilterToJSON(ArrayList<Product> obj){
+        logger.info("Convert ArrayProductList to JSON");
         JSONObject jsonObject = new JSONObject();
         for(int i = 0; i<obj.size(); i++){
             JSONArray jsonArray = new JSONArray();
@@ -53,6 +59,7 @@ public class ProductManager implements Serializable {
             System.out.println(jsonArray);
             jsonObject.put(i,jsonArray);
         }
+        logger.info("Convert ArrayProductList to JSON -> Success!");
         return jsonObject;
     }
 }
